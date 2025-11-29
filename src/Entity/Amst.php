@@ -12,6 +12,7 @@ use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping\Column;
 use Doctrine\ORM\Mapping\Entity;
 use Doctrine\ORM\Mapping\Id;
+use Survos\BabelBundle\Attribute\BabelStorage;
 use Survos\BabelBundle\Contract\BabelHooksInterface;
 use Survos\BabelBundle\Entity\Traits\BabelHooksTrait;
 use Survos\MeiliBundle\Metadata\MeiliIndex;
@@ -31,6 +32,7 @@ use Survos\BabelBundle\Attribute\Translatable;
 	sortable: self::SORTABLE_FIELDS,
 	searchable: self::SEARCHABLE_FIELDS,
 )]
+#[BabelStorage()]
 final class Amst implements MarkingInterface, BabelHooksInterface
 {
     use MarkingTrait;
@@ -108,27 +110,6 @@ final class Amst implements MarkingInterface, BabelHooksInterface
 	#[Column(length: 3, nullable: true)]
 	public ?string $categorie = null;
 
-	/**
-	 * Profile field "subcategorie"
-	 * @types string (storageHint=string)
-	 * @stats total=5, nulls=0, distinct=3
-	 * @length 10–19 chars
-	 * @facetCandidate true
-	 * @booleanLike true
-	 */
-	#[Column(length: 19, nullable: true)]
-	public ?string $subcategorie = null;
-
-	/**
-	 * Profile field "object"
-	 * @types string (storageHint=string)
-	 * @stats total=5, nulls=0, distinct=3
-	 * @length 4–13 chars
-	 * @facetCandidate true
-	 * @booleanLike true
-	 */
-	#[Column(length: 13, nullable: true)]
-	public ?string $object = null;
 
 	/**
 	 * Profile field "fragmenten"
@@ -201,8 +182,6 @@ final class Amst implements MarkingInterface, BabelHooksInterface
 	 * @facetCandidate true
 	 * @booleanLike true
 	 */
-	#[Column(length: 24, nullable: true)]
-	public ?string $niveau1 = null;
 
 	/**
 	 * Profile field "niveau2"
@@ -212,8 +191,6 @@ final class Amst implements MarkingInterface, BabelHooksInterface
 	 * @facetCandidate true
 	 * @booleanLike true
 	 */
-	#[Column(length: 80, nullable: true)]
-	public ?string $niveau2 = null;
 
 	/**
 	 * Profile field "niveau3"
@@ -223,8 +200,6 @@ final class Amst implements MarkingInterface, BabelHooksInterface
 	 * @facetCandidate true
 	 * @booleanLike true
 	 */
-	#[Column(length: 8, nullable: true)]
-	public ?string $niveau3 = null;
 
 	/**
 	 * Profile field "niveau4"
@@ -234,8 +209,6 @@ final class Amst implements MarkingInterface, BabelHooksInterface
 	 * @facetCandidate true
 	 * @booleanLike true
 	 */
-	#[Column(length: 7, nullable: true)]
-	public ?string $niveau4 = null;
 
 	/**
 	 * Profile field "website"
@@ -394,13 +367,23 @@ final class Amst implements MarkingInterface, BabelHooksInterface
 	public ?float $vlakMax = null;
 
         // <BABEL:TRANSLATABLE:START label>
-        #[Column(type: Types::STRING, length: 255, nullable: true)]
-        private ?string $labelBacking = null;
+
+    /**
+     * Profile field "object"
+     * @types string (storageHint=string)
+     * @stats total=5, nulls=0, distinct=3
+     * @length 4–13 chars
+     * @facetCandidate true
+     * @booleanLike true
+     */
+
+    #[Column(type: Types::STRING, length: 255, nullable: true)]
+        private ?string $objectBacking = null;
 
         #[Translatable(context: NULL)]
-        public ?string $label {
-            get => $this->resolveTranslatable('label', $this->labelBacking, NULL);
-            set => $this->labelBacking = $value;
+        public ?string $object {
+            get => $this->resolveTranslatable('object', $this->objectBacking, NULL);
+            set => $this->objectBacking = $value;
         }
         // <BABEL:TRANSLATABLE:END label>
 
@@ -414,4 +397,66 @@ final class Amst implements MarkingInterface, BabelHooksInterface
             set => $this->descriptionBacking = $value;
         }
         // <BABEL:TRANSLATABLE:END description>
+    /**
+     * Profile field "subcategorie"
+     * @types string (storageHint=string)
+     * @stats total=5, nulls=0, distinct=3
+     * @length 10–19 chars
+     * @facetCandidate true
+     * @booleanLike true
+     */
+    #[Column(length: 19, nullable: true)]
+    private ?string $subcategorieBacking = null;
+    #[Translatable(context: NULL)]
+    public ?string $subcategorie {
+        get => $this->resolveTranslatable('subcategorie', $this->subcategorieBacking);
+        set => $this->subcategorieBacking = $value;
+    }
+
+
+
+
+        // <BABEL:TRANSLATABLE:START niveau1>
+        #[Column(type: Types::STRING, length: 255, nullable: true)]
+        private ?string $niveau1Backing = null;
+
+        #[Translatable(context: NULL)]
+        public ?string $niveau1 {
+            get => $this->resolveTranslatable('niveau1', $this->niveau1Backing, NULL);
+            set => $this->niveau1Backing = $value;
+        }
+        // <BABEL:TRANSLATABLE:END niveau1>
+
+        // <BABEL:TRANSLATABLE:START niveau2>
+        #[Column(type: Types::STRING, length: 255, nullable: true)]
+        private ?string $niveau2Backing = null;
+
+        #[Translatable(context: NULL)]
+        public ?string $niveau2 {
+            get => $this->resolveTranslatable('niveau2', $this->niveau2Backing, NULL);
+            set => $this->niveau2Backing = $value;
+        }
+        // <BABEL:TRANSLATABLE:END niveau2>
+
+        // <BABEL:TRANSLATABLE:START niveau3>
+        #[Column(type: Types::STRING, length: 255, nullable: true)]
+        private ?string $niveau3Backing = null;
+
+        #[Translatable(context: NULL)]
+        public ?string $niveau3 {
+            get => $this->resolveTranslatable('niveau3', $this->niveau3Backing, NULL);
+            set => $this->niveau3Backing = $value;
+        }
+        // <BABEL:TRANSLATABLE:END niveau3>
+
+        // <BABEL:TRANSLATABLE:START niveau4>
+        #[Column(type: Types::STRING, length: 255, nullable: true)]
+        private ?string $niveau4Backing = null;
+
+        #[Translatable(context: NULL)]
+        public ?string $niveau4 {
+            get => $this->resolveTranslatable('niveau4', $this->niveau4Backing, NULL);
+            set => $this->niveau4Backing = $value;
+        }
+        // <BABEL:TRANSLATABLE:END niveau4>
 }

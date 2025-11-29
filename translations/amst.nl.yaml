@@ -1,0 +1,426 @@
+vondstnummer:
+  label: Vondstnummer
+  description: Uniek identificatienummer voor de archeologische vondst
+
+code:
+  label: Code
+  description: Unieke code-identificatie
+
+imageCount:
+  label: Aantal afbeeldingen
+  description: Aantal afbeeldingen gekoppeld aan deze vondst
+
+projectCode:
+  label: Projectcode
+  description: Projectcode die de opgravingslocatie identificeert
+
+categorie:
+  label: Categorie
+  description: Materiaalcategorie van de vondst
+
+subcategorie:
+  label: Subcategorie
+  description: Materiaaltype binnen de categorie
+
+object:
+  label: Object
+  description: Objectnaam of -type
+
+fragmenten:
+  label: Fragmenten
+  description: Aantal fragmenten
+
+beginDat:
+  label: Begindatering
+  description: Begin van het dateringsinterval
+
+eindDat:
+  label: Einddatering
+  description: Einde van het dateringsinterval
+
+put:
+  label: Put
+  description: Putnummer van de opgraving
+
+vlak:
+  label: Vlak
+  description: Vlaknummer binnen de opgraving
+
+spoor:
+  label: Spoor
+  description: Spoornummer ter identificatie van de archeologische context
+
+niveau1:
+  label: Classificatieniveau 1
+  description: Niveau 1 van de functionele classificatie
+
+niveau2:
+  label: Classificatieniveau 2
+  description: Niveau 2 van de functionele classificatie
+
+niveau3:
+  label: Classificatieniveau 3
+  description: Niveau 3 van de functionele classificatie
+
+niveau4:
+  label: Classificatieniveau 4
+  description: Niveau 4 van de functionele classificatie
+
+website:
+  label: Op website
+  description: Aanwezig op de website (1=Ja, 0=Nee)
+
+muntLandGeografisch:
+  label: "Munt: Land"
+  description: "Munt: Land (geografisch)"
+
+muntAutoriteitPolitiek:
+  label: "Munt: Autoriteit"
+  description: "Munt: Uitgevende autoriteit"
+
+muntMuntsoort:
+  label: "Munt: Soort"
+  description: "Munt: Muntsoort"
+
+muntEenheidWaarde:
+  label: "Munt: Waarde"
+  description: "Munt: Eenheid of waarde"
+
+muntMuntplaatsProductieplaats:
+  label: "Munt: Muntplaats"
+  description: "Munt: Muntplaats of productieplaats"
+
+muntLengteDiameterInMm:
+  label: "Munt: Diameter (mm)"
+  description: "Munt: Diameter in millimeters"
+
+image:
+  label: Afbeelding
+  description: URL van de afbeelding
+
+citationUrl:
+  label: Citatie-URL
+  description: URL voor citatieverwijzing
+
+trefwoorden:
+  label: Trefwoorden
+  description: Trefwoorden (alleen bij gefotografeerde vondsten)
+
+vlakMin:
+  label: Vlak minimum (NAP)
+  description: Minimale hoogte van het vlak ten opzichte van NAP (Normaal Amsterdams Peil)
+
+vlakMax:
+  label: Vlak maximum (NAP)
+  description: Maximale hoogte van het vlak ten opzichte van NAP (Normaal Amsterdams Peil)
+
+gewicht:
+  label: Gewicht (g)
+  description: Gewicht in gram
+
+vak:
+  label: Vak
+  description: Vaknummer binnen het opgravingsgrid
+
+pastAanHoortBij:
+  label: Past aan / Hoort bij
+  description: Past aan of hoort bij ander(e) vondstnummer(s)
+
+objectdeel:
+  label: Objectdeel
+  description: Deel van het object (bijv. rand, bodem, wand)
+
+# Aardewerk
+aardewerkDsType:
+  label: "Aardewerk: DS-code"
+  description: "Aardewerk: Deventer Systeem typecode"
+
+aardewerkEveRand:
+  label: "Aardewerk: Rand-EVE"
+  description: "Aardewerk: Rand Estimated Vessel Equivalent"
+
+aardewerkEveBodem:
+  label: "Aardewerk: Bodem-EVE"
+  description: "Aardewerk: Bodem Estimated Vessel Equivalent"
+
+aardewerkHerkomst:
+  label: "Aardewerk: Herkomst"
+  description: "Aardewerk: Plaats van herkomst of productie"
+
+aardewerkObjectDiameterMm:
+  label: "Aardewerk: Diameter (mm)"
+  description: "Aardewerk: (Gereconstrueerde) objectdiameter in millimeters"
+
+aardewerkObjectHoogteMm:
+  label: "Aardewerk: Hoogte (mm)"
+  description: "Aardewerk: (Gereconstrueerde) objecthoogte in millimeters"
+
+aardewerkFragmHoogteMm:
+  label: "Aardewerk: Fragmenthoogte (mm)"
+  description: "Aardewerk: Fragmenthoogte in millimeters"
+
+aardewerkOppBehandeling:
+  label: "Aardewerk: Oppervlaktebehandeling"
+  description: "Aardewerk: Oppervlaktebehandelingstechniek"
+
+aardewerkDecoratietechniek:
+  label: "Aardewerk: Decoratietechniek"
+  description: "Aardewerk: Toegepaste decoratietechniek"
+
+aardewerkDecorgroepen:
+  label: "Aardewerk: Decorgroepen"
+  description: "Aardewerk: Decoratiepatroongroepen"
+
+aardewerkMerk:
+  label: "Aardewerk: Merk"
+  description: "Aardewerk: Fabrieksmerk of stempel"
+
+# Glas
+glasDsType:
+  label: "Glas: DS-code"
+  description: "Glas: Deventer Systeem typecode"
+
+glasKleur:
+  label: "Glas: Kleur"
+  description: "Glas: Kleur van het glas"
+
+glasHerkomst:
+  label: "Glas: Herkomst"
+  description: "Glas: Plaats van herkomst of productie"
+
+glasEveRand:
+  label: "Glas: Rand-EVE"
+  description: "Glas: Rand Estimated Vessel Equivalent"
+
+glasEveBodem:
+  label: "Glas: Bodem-EVE"
+  description: "Glas: Bodem Estimated Vessel Equivalent"
+
+glasObjectDiameterMm:
+  label: "Glas: Diameter (mm)"
+  description: "Glas: (Gereconstrueerde) objectdiameter in millimeters"
+
+glasObjectHoogteMm:
+  label: "Glas: Hoogte (mm)"
+  description: "Glas: (Gereconstrueerde) objecthoogte in millimeters"
+
+glasFragmHoogteMm:
+  label: "Glas: Fragmenthoogte (mm)"
+  description: "Glas: Fragmenthoogte in millimeters"
+
+# Metaal
+metaalDeelmaterialen:
+  label: "Metaal: Deelmaterialen"
+  description: "Metaal: Samenstellende materialen"
+
+metaalGrootstelengteMm:
+  label: "Metaal: Lengte (mm)"
+  description: "Metaal: Grootste lengte in millimeters"
+
+metaalGrootstebreedteMm:
+  label: "Metaal: Breedte (mm)"
+  description: "Metaal: Grootste breedte in millimeters"
+
+metaalGrootstehoogteMm:
+  label: "Metaal: Hoogte (mm)"
+  description: "Metaal: Grootste hoogte in millimeters"
+
+metaalGrootstedikteMm:
+  label: "Metaal: Dikte (mm)"
+  description: "Metaal: Grootste dikte in millimeters"
+
+metaalDiameterMm:
+  label: "Metaal: Diameter (mm)"
+  description: "Metaal: Diameter in millimeters"
+
+metaalProductiecentrum:
+  label: "Metaal: Productiecentrum"
+  description: "Metaal: Plaats van productie"
+
+# Bouwmaterialen
+bouwmaterialenKleur:
+  label: "Bouwmaterialen: Kleur"
+  description: "Bouwmaterialen: Kleur"
+
+bouwmaterialenGrootstelengteMm:
+  label: "Bouwmaterialen: Lengte (mm)"
+  description: "Bouwmaterialen: Grootste lengte in millimeters"
+
+bouwmaterialenGrootstebreedteMm:
+  label: "Bouwmaterialen: Breedte (mm)"
+  description: "Bouwmaterialen: Grootste breedte in millimeters"
+
+bouwmaterialenGrootstedikteMm:
+  label: "Bouwmaterialen: Dikte (mm)"
+  description: "Bouwmaterialen: Grootste dikte in millimeters"
+
+bouwmaterialenAfbeelding:
+  label: "Bouwmaterialen: Type afbeelding"
+  description: "Bouwmaterialen: Type afbeelding of decoratie"
+
+bouwmaterialenOppervlakte:
+  label: "Bouwmaterialen: Oppervlakte"
+  description: "Bouwmaterialen: Oppervlaktebehandeling"
+
+# Fauna
+faunaSoort:
+  label: "Fauna: Soort"
+  description: "Fauna: Diersoort"
+
+faunaElement:
+  label: "Fauna: Element"
+  description: "Fauna: Skeletelement"
+
+faunaLengteMm:
+  label: "Fauna: Lengte (mm)"
+  description: "Fauna: Lengte in millimeters"
+
+faunaBreedteMm:
+  label: "Fauna: Breedte (mm)"
+  description: "Fauna: Breedte in millimeters"
+
+# Rookpijpen
+rookpijpenModel:
+  label: "Rookpijpen: Model"
+  description: "Rookpijpen: Pijpmodeltype"
+
+rookpijpenZijmerkLinks:
+  label: "Rookpijpen: Zijmerk links"
+  description: "Rookpijpen: Merk aan de linkerzijde van de kop"
+
+rookpijpenZijmerkRechts:
+  label: "Rookpijpen: Zijmerk rechts"
+  description: "Rookpijpen: Merk aan de rechterzijde van de kop"
+
+rookpijpenBijmerkLinks:
+  label: "Rookpijpen: Bijmerk links"
+  description: "Rookpijpen: Bijmerk aan de linkerzijde"
+
+rookpijpenBijmerkRechts:
+  label: "Rookpijpen: Bijmerk rechts"
+  description: "Rookpijpen: Bijmerk aan de rechterzijde"
+
+rookpijpenMerkOfHielmerk:
+  label: "Rookpijpen: Hielmerk"
+  description: "Rookpijpen: Merk of hielmerk"
+
+rookpijpenOppervlaktebehandelingKop:
+  label: "Rookpijpen: Oppervlakte kop"
+  description: "Rookpijpen: Oppervlaktebehandeling van de kop"
+
+rookpijpenKopopening:
+  label: "Rookpijpen: Kopopening"
+  description: "Rookpijpen: Type kopopening"
+
+rookpijpenRadering:
+  label: "Rookpijpen: Radering"
+  description: "Rookpijpen: Raderingdecoratie"
+
+rookpijpenSteelbehandeling:
+  label: "Rookpijpen: Steelbehandeling"
+  description: "Rookpijpen: Oppervlaktebehandeling van de steel"
+
+rookpijpenKwaliteit:
+  label: "Rookpijpen: Kwaliteit"
+  description: "Rookpijpen: Kwaliteitsklasse"
+
+rookpijpenProductiecentrum:
+  label: "Rookpijpen: Productiecentrum"
+  description: "Rookpijpen: Plaats van productie"
+
+rookpijpenPijpenmaker:
+  label: "Rookpijpen: Pijpenmaker"
+  description: "Rookpijpen: Naam van de pijpenmaker"
+
+# Hout
+houtGrootstelengteMm:
+  label: "Hout: Lengte (mm)"
+  description: "Hout: Grootste lengte in millimeters"
+
+houtGrootstebreedteMm:
+  label: "Hout: Breedte (mm)"
+  description: "Hout: Grootste breedte in millimeters"
+
+houtGrootstehoogteMm:
+  label: "Hout: Hoogte (mm)"
+  description: "Hout: Grootste hoogte in millimeters"
+
+houtGrootstedikteMm:
+  label: "Hout: Dikte (mm)"
+  description: "Hout: Grootste dikte in millimeters"
+
+houtDiameterMm:
+  label: "Hout: Diameter (mm)"
+  description: "Hout: Diameter in millimeters"
+
+# Kunststof
+kunststofGrootstelengteMm:
+  label: "Kunststof: Lengte (mm)"
+  description: "Kunststof: Grootste lengte in millimeters"
+
+kunststofGrootstebreedteMm:
+  label: "Kunststof: Breedte (mm)"
+  description: "Kunststof: Grootste breedte in millimeters"
+
+kunststofDiameterMm:
+  label: "Kunststof: Diameter (mm)"
+  description: "Kunststof: Diameter in millimeters"
+
+kunststofEigenaar:
+  label: "Kunststof: Eigenaar"
+  description: "Kunststof: Eigenaaridentificatie"
+
+kunststofEenheidWaarde:
+  label: "Kunststof: Eenheid/Waarde"
+  description: "Kunststof: Eenheid of waarde"
+
+# Natuursteen
+natuursteenSubsoort:
+  label: "Natuursteen: Subsoort"
+  description: "Natuursteen: Steensubsoort"
+
+natuursteenGrootstelengteMm:
+  label: "Natuursteen: Lengte (mm)"
+  description: "Natuursteen: Grootste lengte in millimeters"
+
+natuursteenGrootstebreedteMm:
+  label: "Natuursteen: Breedte (mm)"
+  description: "Natuursteen: Grootste breedte in millimeters"
+
+natuursteenGrootstedikteMm:
+  label: "Natuursteen: Dikte (mm)"
+  description: "Natuursteen: Grootste dikte in millimeters"
+
+natuursteenDiameterMm:
+  label: "Natuursteen: Diameter (mm)"
+  description: "Natuursteen: Diameter in millimeters"
+
+natuursteenProductiesporen:
+  label: "Natuursteen: Productiesporen"
+  description: "Natuursteen: Sporen van productietechnieken"
+
+# Plant
+plantSoort:
+  label: "Plant: Soort"
+  description: "Plant: Plantensoort"
+
+plantGrootstelengteMm:
+  label: "Plant: Lengte (mm)"
+  description: "Plant: Grootste lengte in millimeters"
+
+plantGrootstebreedteMm:
+  label: "Plant: Breedte (mm)"
+  description: "Plant: Grootste breedte in millimeters"
+
+plantGrootstedikteMm:
+  label: "Plant: Dikte (mm)"
+  description: "Plant: Grootste dikte in millimeters"
+
+# Leer
+leerDeelmaterialen:
+  label: "Leer: Deelmaterialen"
+  description: "Leer: Samenstellende materialen"
+
+leerLeersoort:
+  label: "Leer: Leersoort"
+  description: "Leer: Type leer"
