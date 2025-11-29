@@ -643,7 +643,7 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *         }>,
  *     },
  *     uid?: bool|array{ // Uid configuration
- *         enabled?: bool, // Default: false
+ *         enabled?: bool, // Default: true
  *         default_uuid_version?: 7|6|4|1, // Default: 7
  *         name_based_uuid_version?: 5|3, // Default: 5
  *         name_based_uuid_namespace?: scalar|null,
@@ -963,7 +963,7 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *         enabled?: bool, // Default: false
  *     },
  *     html?: bool|array{
- *         enabled?: bool, // Default: false
+ *         enabled?: bool, // Default: true
  *     },
  *     markdown?: bool|array{
  *         enabled?: bool, // Default: false
@@ -1464,6 +1464,111 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *     generate_final_classes?: bool, // Default: true
  *     generate_final_entities?: bool, // Default: false
  * }
+ * @psalm-type SurvosImportConfig = array{
+ *     dir?: scalar|null, // The default directory for data files // Default: "data"
+ * }
+ * @psalm-type SurvosJsonlConfig = array<mixed>
+ * @psalm-type SurvosCoreConfig = array{
+ *     enabled?: bool, // Default: true
+ *     dd?: bool, // Default: true
+ * }
+ * @psalm-type SurvosMeiliConfig = array{
+ *     core_name?: scalar|null, // Default: "core"
+ *     enabled?: bool, // Default: true
+ *     host?: scalar|null, // Default: "%env(default::MEILI_SERVER)%"
+ *     apiKey?: scalar|null, // Default: "%env(default::MEILI_ADMIN_KEY)%"
+ *     transport?: scalar|null, // Default: "%env(default::MEILI_TRANSPORT)%"
+ *     searchKey?: scalar|null, // Default: "%env(default::MEILI_SEARCH_KEY)%"
+ *     meiliPrefix?: scalar|null, // Default: "%env(default::MEILI_PREFIX)%"
+ *     passLocale?: bool, // Default: false
+ *     maxValuesPerFacet?: int, // Default: 1000
+ *     tools?: list<array{ // Default: []
+ *         label: scalar|null,
+ *         url: scalar|null,
+ *     }>,
+ *     embedders?: array<string, array{ // Default: []
+ *         source: scalar|null,
+ *         model: scalar|null,
+ *         apiKey?: scalar|null, // Default: null
+ *         for?: scalar|null, // Default: null
+ *         template?: scalar|null, // Default: null
+ *         documentTemplateMaxBytes?: int, // Default: 4096
+ *         maxTokensPerDoc?: int, // Optional hint for expected max tokens per doc for cost estimation / guard rails. // Default: null
+ *         examples?: list<scalar|null>,
+ *     }>,
+ *     pricing?: array{
+ *         embedders?: array<string, scalar|null>,
+ *     },
+ *     meili_settings?: array{
+ *         typoTolerance?: array{
+ *             enabled?: bool, // Default: true
+ *             oneTypo?: int, // Default: 5
+ *             twoTypos?: int, // Default: 9
+ *             disableOnWords?: list<scalar|null>,
+ *             disableOnAttributes?: list<scalar|null>,
+ *             disableOnNumbers?: bool, // Default: false
+ *         },
+ *         faceting?: array{
+ *             maxValuesPerFacet?: int, // Default: 1000
+ *             sortFacetValuesBy?: array<string, scalar|null>,
+ *         },
+ *         pagination?: array{
+ *             maxTotalHits?: int, // Default: 1000
+ *         },
+ *         facetSearch?: bool, // Default: true
+ *         prefixSearch?: scalar|null, // Default: "indexingTime"
+ *     },
+ *     entity_dirs?: list<scalar|null>,
+ * }
+ * @psalm-type SurvosCodeConfig = array{
+ *     base_layout?: scalar|null, // Default: "base.html.twig"
+ * }
+ * @psalm-type TwigComponentConfig = array{
+ *     defaults?: array<string, string|array{ // Default: ["__deprecated__use_old_naming_behavior"]
+ *         template_directory?: scalar|null, // Default: "components"
+ *         name_prefix?: scalar|null, // Default: ""
+ *     }>,
+ *     anonymous_template_directory?: scalar|null, // Defaults to `components`
+ *     profiler?: bool, // Enables the profiler for Twig Component (in debug mode) // Default: "%kernel.debug%"
+ *     controllers_json?: scalar|null, // Deprecated: The "twig_component.controllers_json" config option is deprecated, and will be removed in 3.0. // Default: null
+ * }
+ * @psalm-type SurvosEzConfig = array{
+ *     enabled?: bool, // Default: true
+ * }
+ * @psalm-type SurvosBabelConfig = array<mixed>
+ * @psalm-type UxIconsConfig = array{
+ *     icon_dir?: scalar|null, // The local directory where icons are stored. // Default: "%kernel.project_dir%/assets/icons"
+ *     default_icon_attributes?: mixed, // Default attributes to add to all icons. // Default: {"fill":"currentColor"}
+ *     icon_sets?: array<string, array{ // the icon set prefix (e.g. "acme") // Default: []
+ *         path?: scalar|null, // The local icon set directory path. (cannot be used with 'alias')
+ *         alias?: scalar|null, // The remote icon set identifier. (cannot be used with 'path')
+ *         icon_attributes?: list<mixed>,
+ *     }>,
+ *     aliases?: list<scalar|null>,
+ *     iconify?: bool|array{ // Configuration for the remote icon service.
+ *         enabled?: bool, // Default: true
+ *         on_demand?: bool, // Whether to download icons "on demand". // Default: true
+ *         endpoint?: scalar|null, // The endpoint for the Iconify icons API. // Default: "https://api.iconify.design"
+ *     },
+ *     ignore_not_found?: bool, // Ignore error when an icon is not found. Set to 'true' to fail silently. // Default: false
+ * }
+ * @psalm-type SurvosLinguaConfig = array{
+ *     server?: scalar|null, // Default: "%env(default::LINGUA_BASE_URI)%"
+ *     api_key?: scalar|null, // Default: "%env(default::LINGUA_API_KEY)%"
+ *     timeout?: int, // Default: 10
+ * }
+ * @psalm-type SurvosStateConfig = array{
+ *     queue_prefix?: scalar|null, // Default: ""
+ *     base_layout?: scalar|null, // Default: "base.html.twig"
+ *     enable_dynamic_routing?: bool, // Default: true
+ *     workflow_paths?: list<scalar|null>,
+ *     async_transport_dsn?: scalar|null, // Default: "doctrine://default"
+ * }
+ * @psalm-type SurvosMakerConfig = array{
+ *     template_path?: scalar|null, // Default: "/home/tac/sites/mono/bu/maker-bundle/src/../templates/skeleton/"
+ *     vendor?: scalar|null, // Default: "Survos"
+ *     relative_bundle_path?: scalar|null, // Default: "bu"
+ * }
  * @psalm-type ConfigType = array{
  *     imports?: ImportsConfig,
  *     parameters?: ParametersConfig,
@@ -1477,6 +1582,16 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *     twig_extra?: TwigExtraConfig,
  *     security?: SecurityConfig,
  *     monolog?: MonologConfig,
+ *     survos_import?: SurvosImportConfig,
+ *     survos_jsonl?: SurvosJsonlConfig,
+ *     survos_core?: SurvosCoreConfig,
+ *     survos_meili?: SurvosMeiliConfig,
+ *     twig_component?: TwigComponentConfig,
+ *     survos_ez?: SurvosEzConfig,
+ *     survos_babel?: SurvosBabelConfig,
+ *     ux_icons?: UxIconsConfig,
+ *     survos_lingua?: SurvosLinguaConfig,
+ *     survos_state?: SurvosStateConfig,
  *     "when@dev"?: array{
  *         imports?: ImportsConfig,
  *         parameters?: ParametersConfig,
@@ -1493,6 +1608,18 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *         security?: SecurityConfig,
  *         monolog?: MonologConfig,
  *         maker?: MakerConfig,
+ *         survos_import?: SurvosImportConfig,
+ *         survos_jsonl?: SurvosJsonlConfig,
+ *         survos_core?: SurvosCoreConfig,
+ *         survos_meili?: SurvosMeiliConfig,
+ *         survos_code?: SurvosCodeConfig,
+ *         twig_component?: TwigComponentConfig,
+ *         survos_ez?: SurvosEzConfig,
+ *         survos_babel?: SurvosBabelConfig,
+ *         ux_icons?: UxIconsConfig,
+ *         survos_lingua?: SurvosLinguaConfig,
+ *         survos_state?: SurvosStateConfig,
+ *         survos_maker?: SurvosMakerConfig,
  *     },
  *     "when@prod"?: array{
  *         imports?: ImportsConfig,
@@ -1507,6 +1634,16 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *         twig_extra?: TwigExtraConfig,
  *         security?: SecurityConfig,
  *         monolog?: MonologConfig,
+ *         survos_import?: SurvosImportConfig,
+ *         survos_jsonl?: SurvosJsonlConfig,
+ *         survos_core?: SurvosCoreConfig,
+ *         survos_meili?: SurvosMeiliConfig,
+ *         twig_component?: TwigComponentConfig,
+ *         survos_ez?: SurvosEzConfig,
+ *         survos_babel?: SurvosBabelConfig,
+ *         ux_icons?: UxIconsConfig,
+ *         survos_lingua?: SurvosLinguaConfig,
+ *         survos_state?: SurvosStateConfig,
  *     },
  *     "when@test"?: array{
  *         imports?: ImportsConfig,
@@ -1522,6 +1659,18 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *         twig_extra?: TwigExtraConfig,
  *         security?: SecurityConfig,
  *         monolog?: MonologConfig,
+ *         survos_import?: SurvosImportConfig,
+ *         survos_jsonl?: SurvosJsonlConfig,
+ *         survos_core?: SurvosCoreConfig,
+ *         survos_meili?: SurvosMeiliConfig,
+ *         survos_code?: SurvosCodeConfig,
+ *         twig_component?: TwigComponentConfig,
+ *         survos_ez?: SurvosEzConfig,
+ *         survos_babel?: SurvosBabelConfig,
+ *         ux_icons?: UxIconsConfig,
+ *         survos_lingua?: SurvosLinguaConfig,
+ *         survos_state?: SurvosStateConfig,
+ *         survos_maker?: SurvosMakerConfig,
  *     },
  *     ...<string, ExtensionType|array{ // extra keys must follow the when@%env% pattern or match an extension alias
  *         imports?: ImportsConfig,

@@ -1,5 +1,20 @@
 {
     "controllers": {
+        "@survos/meili-bundle": {
+            "insta": {
+                "enabled": true,
+                "fetch": "eager",
+                "autoimport": {
+                    "instantsearch.css/themes/algolia.min.css": false,
+                    "pretty-print-json/dist/css/pretty-print-json.min.css": true
+                }
+            },
+            "json": {
+                "enabled": true,
+                "fetch": "lazy",
+                "autoimport": []
+            }
+        },
         "@symfony/ux-turbo": {
             "turbo-core": {
                 "enabled": true,
