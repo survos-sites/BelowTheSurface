@@ -775,10 +775,10 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *     },
  *     orm?: array{
  *         default_entity_manager?: scalar|null,
- *         enable_native_lazy_objects?: bool, // no-op, will be deprecated and removed in the future // Default: true
+ *         enable_native_lazy_objects?: bool, // Deprecated: The "enable_native_lazy_objects" option is deprecated and will be removed in DoctrineBundle 4.0, as native lazy objects are now always enabled. // Default: true
  *         controller_resolver?: bool|array{
  *             enabled?: bool, // Default: true
- *             auto_mapping?: bool, // Set to true to enable using route placeholders as lookup criteria when the primary key doesn't match the argument name // Default: false
+ *             auto_mapping?: bool, // Deprecated: The "auto_mapping" option is deprecated and will be removed in DoctrineBundle 4.0, as it only accepts `false` since 3.0. // Set to true to enable using route placeholders as lookup criteria when the primary key doesn't match the argument name // Default: false
  *             evict_cache?: bool, // Set to true to fetch the entity from the database instead of using the cache, if any // Default: false
  *         },
  *         entity_managers?: array<string, array{ // Default: []
@@ -912,7 +912,6 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *     }>,
  *     autoescape_service?: scalar|null, // Default: null
  *     autoescape_service_method?: scalar|null, // Default: null
- *     base_template_class?: scalar|null, // Deprecated: The child node "base_template_class" at path "twig.base_template_class" is deprecated.
  *     cache?: scalar|null, // Default: true
  *     charset?: scalar|null, // Default: "%kernel.charset%"
  *     debug?: bool, // Default: "%kernel.debug%"
@@ -1008,7 +1007,6 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  * @psalm-type SecurityConfig = array{
  *     access_denied_url?: scalar|null, // Default: null
  *     session_fixation_strategy?: "none"|"migrate"|"invalidate", // Default: "migrate"
- *     hide_user_not_found?: bool, // Deprecated: The "hide_user_not_found" option is deprecated and will be removed in 8.0. Use the "expose_security_errors" option instead.
  *     expose_security_errors?: \Symfony\Component\Security\Http\Authentication\ExposeSecurityLevel::None|\Symfony\Component\Security\Http\Authentication\ExposeSecurityLevel::AccountStatus|\Symfony\Component\Security\Http\Authentication\ExposeSecurityLevel::All, // Default: "none"
  *     erase_credentials?: bool, // Default: true
  *     access_decision_manager?: array{
@@ -1244,9 +1242,7 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *                     claim?: scalar|null, // Claim which contains the user identifier (e.g.: sub, email..). // Default: "sub"
  *                     audience: scalar|null, // Audience set in the token, for validation purpose.
  *                     issuers: list<scalar|null>,
- *                     algorithm?: array<mixed>,
  *                     algorithms: list<scalar|null>,
- *                     key?: scalar|null, // Deprecated: The "key" option is deprecated and will be removed in 8.0. Use the "keyset" option instead. // JSON-encoded JWK used to sign the token (must contain a "kty" key).
  *                     keyset?: scalar|null, // JSON-encoded JWKSet used to sign the token (must contain a list of valid public keys).
  *                     encryption?: bool|array{
  *                         enabled?: bool, // Default: false
@@ -1565,7 +1561,7 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *     async_transport_dsn?: scalar|null, // Default: "doctrine://default"
  * }
  * @psalm-type SurvosMakerConfig = array{
- *     template_path?: scalar|null, // Default: "/home/tac/sites/mono/bu/maker-bundle/src/../templates/skeleton/"
+ *     template_path?: scalar|null, // Default: "/home/tac/g/sites/mono/bu/maker-bundle/src/../templates/skeleton/"
  *     vendor?: scalar|null, // Default: "Survos"
  *     relative_bundle_path?: scalar|null, // Default: "bu"
  * }
