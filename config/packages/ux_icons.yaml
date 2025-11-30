@@ -11,8 +11,11 @@ ux_icons:
         height: '1em'
         width: '1em'
 
-    # Throw an exception if an icon is not found
+    # on plane
     ignore_not_found: true
+    iconify:
+        enabled: false
+        on_demand: false
 
 when@prod:
     ux_icons:
