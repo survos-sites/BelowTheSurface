@@ -31,6 +31,7 @@ class EnhanceRecordListener
 //        foreach ($event->tags as $tag)
         {
             switch ($event->dataset) {
+                case 'amst':
                 case 'amst_en':
                 case 'amst_nl':
                     // bad: https://statics.belowthesurface.amsterdam/vondst/600/NZC1.00001MTL001(01).png

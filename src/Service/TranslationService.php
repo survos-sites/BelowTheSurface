@@ -7,13 +7,17 @@ use Survos\BabelBundle\Runtime\BabelRuntime;
 use Survos\CoreBundle\Service\SurvosUtils;
 use Survos\JsonlBundle\IO\JsonlReader;
 use Survos\JsonlBundle\IO\JsonlReaderInterface;
+use Survos\JsonlBundle\IO\JsonlWriter;
 use Survos\LibreTranslateBundle\Service\LibreTranslateService;
+use Survos\TranslatorBundle\Model\TranslationRequest;
+use Survos\TranslatorBundle\Service\TranslatorManager;
 use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
 
 class TranslationService
 {
 
     public function __construct(
+        private TranslatorManager $translatorManager,
 //        private JsonlReaderInterface $jsonlReader,
     )
     {
@@ -24,70 +28,44 @@ class TranslationService
     public function onTranslateStringEvent(TranslateStringEvent $event): void
     {
         static $dict = [];
-        if (!$dict) {
-            $file = 'data/amst_nl.jsonl';
-            $nlReader = new JsonlReader($file);
-            $enReader = new JsonlReader('data/amst_en.jsonl');
-            $enIterator = $enReader->getIterator();
-            $nlIterator = $nlReader->getIterator();
-            $idx = 0;
-            while ($nl = $nlIterator->current()) {
-                $idx++;
-                $en = $enIterator->current();
-                $enIterator->next();
-                $nlIterator->next();
-//                $en = $enIterator->next();
-                assert($en['code'] == $nl['code']);
-                foreach (['object','subcategorie','niveau1','niveau2','niveau3','niveau4'] as $translatableField) {
-                    if ($orig = $en[$translatableField] ?? null) {
-                        if (!array_key_exists($translatableField, $nl)) {
-                            dd($en, $nl, $translatableField);
-                        }
-                        SurvosUtils::assertKeyExists($translatableField, $nl, "Missing $translatableField $orig in row " . $idx);
-                        $trans = $nl[$translatableField];
-                        $key = md5($orig);
-//                        $key = BabelRuntime::hash($trans, 'en');
-                        if (!array_key_exists($key, $dict)) {
-                            $dict[$key] = $trans;
-                        }
-                    }
-                }
+        // the English is already translated for us.
+        if ($event->targetLocale === 'en') {
+            // this happens at the babel level, so we just translate the strings.
+            // we are not updating the individual entities, e.g. with a doctrine iterator loop.
+            if (empty($dict)) {
+                $dict = json_decode(file_get_contents('data/amst_dictionary.json'), true);
             }
-            dump(count($dict));
+            $src = $event->original;
 
-
-
-            if (false)
-            foreach ($nlReader->getIterator() as $idx => $jsonlObject) {
-                $en = $enIterator->current();
-                dump(en: $en, nl: $jsonlObject, idx: $idx);
-                assert($en['code'] === $jsonlObject['code'], "out of sync on $idx");
-                foreach (['object','subcategorie'] as $translatableField) {
-                    if ($orig = $en[$translatableField]??null) {
-                        if (!array_key_exists($translatableField, $jsonlObject)) {
-                            dd($en, $jsonlObject, $translatableField);
-                        }
-                        SurvosUtils::assertKeyExists($translatableField, $jsonlObject, "Missing $translatableField $orig in row " . $idx);
-                        $trans = $jsonlObject[$translatableField];
-                        $key = md5($orig);
-//                        $key = BabelRuntime::hash($trans, 'en');
-                        if (!array_key_exists($key, $dict)) {
-                            $dict[$key] = $trans;
-                        }
-                    }
-                    try {
-                        $enIterator->next();
-                    } catch (\RuntimeException $e) {
-                        // need to handle end better
-                    }
-                }
-            }
-            dump(sizeof($dict));
+            assert(array_key_exists($src, $dict), "Missing $src in dict");
+            $event->translated = $dict[$src];
+            return;
         }
-        $localHash = md5($event->original);
-        SurvosUtils::assertKeyExists($localHash, $dict);
-        $translated = $dict[$localHash];
-        $event->translated = $translated;
+        $fn = sprintf("data/amst.%s.jsonl", $event->targetLocale);
+        if (empty($dict)) {
+            if (file_exists($fn)) {
+                $reader = new JsonlReader($fn);
+                foreach ($reader as $item) {
+                    $dict[$item['src']] = $item['translated'];
+                }
+            }
+        }
+        if (array_key_exists($event->original, $dict)) {
+            $event->translated = $dict[$event->original];
+            return;
+        }
+        $translator = $this->translatorManager->by('libre');
+//        $translator = $this->translatorManager->by('deepl');
+        $writer = JsonlWriter::open($fn);
+
+        $translated = $translator?->translate(
+            new TranslationRequest($event->original, $event->sourceLocale, $event->targetLocale),
+        );
+        $obj = ['src' => $event->original, 'translated' => $translated->translatedText];
+        $writer->write($obj);
+        $dict[$event->original] = $translated->translatedText;
+        $writer->close();
+        $event->translated = $translated->translatedText;
     }
 
 

@@ -95,9 +95,6 @@
     "survos/lingua-bundle": {
         "version": "2.0.77"
     },
-    "survos/maker-bundle": {
-        "version": "1.6.44"
-    },
     "survos/meili-bundle": {
         "version": "2.0",
         "recipe": {
@@ -113,6 +110,9 @@
     },
     "survos/state-bundle": {
         "version": "2.0.77"
+    },
+    "survos/translator-bundle": {
+        "version": "2.0.80"
     },
     "symfony/asset-mapper": {
         "version": "7.4",

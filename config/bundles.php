@@ -25,5 +25,5 @@ return [
     Symfony\UX\Icons\UXIconsBundle::class => ['all' => true],
     Survos\LinguaBundle\SurvosLinguaBundle::class => ['all' => true],
     Survos\StateBundle\SurvosStateBundle::class => ['all' => true],
-    Survos\Bundle\MakerBundle\SurvosMakerBundle::class => ['dev' => true, 'test' => true],
+    Survos\TranslatorBundle\SurvosTranslatorBundle::class => ['all' => true],
 ];
