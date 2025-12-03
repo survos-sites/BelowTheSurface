@@ -101,7 +101,9 @@
     ? attribute(attribute(hit._highlightResult, titleKey), 'value')
     : null
 %}
-{% set title = highlightedTitle ?? (attribute(hit, titleKey)|default(pk)) %}
+{% set title = hit.niveau3 %}
+{#highlightedTitle ?? (attribute(hit, titleKey)|default(hit.niveau3)) %}#}
+{#{{ titleKey }}#}
 
 {% set description = null %}
 {% if descKey %}

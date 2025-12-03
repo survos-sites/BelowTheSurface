@@ -50,16 +50,17 @@ final class MeiliDashboardController extends AbstractDashboardController
         // Main navigation
         yield MenuItem::linkToDashboard(
             t('page_title.dashboard', [], 'EasyAdminBundle'),
-            'fa fa-home');
+            $this->dashboardHelper->getIcon('home')
+        );
 
-        yield MenuItem::section('content_management', 'fas fa-folder-open');
+//        yield MenuItem::section('content_management', 'fas fa-folder-open');
         yield from $this->menuFactory->createIndexMenus(self::MEILI_ROUTE);
 
-        yield MenuItem::section('tools', 'fas fa-wrench');
+//        yield MenuItem::section('tools', 'fas fa-wrench');
         yield from $this->menuFactory->createToolsMenuItems();
 
-        yield MenuItem::linkToUrl('search_analytics', 'fas fa-chart-line', '#')
-//            ->setPermission('ROLE_ADMIN')
-        ;
+//        yield MenuItem::linkToUrl('search_analytics', 'fas fa-chart-line', '#')
+////            ->setPermission('ROLE_ADMIN')
+//        ;
     }
 }
