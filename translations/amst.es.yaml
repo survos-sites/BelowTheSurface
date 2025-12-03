@@ -1,0 +1,426 @@
+code:
+  label: Código
+  description: Identificación de código único
+
+vondstnummer:
+    label: "Número de hallazgo"
+    description: "Número de identificación único para el hallazgo arqueológico"
+
+imageCount:
+  label: Número de imágenes
+  description: Número de imágenes vinculadas a este hallazgo
+
+projectCode:
+  label: Código de proyecto
+  description: Código de proyecto que identifica el sitio de excavación
+
+categorie:
+  label: Categoría
+  description: Categoría de material del hallazgo
+
+subcategorie:
+  label: Subcategoría
+  description: Tipo de material dentro de la categoría
+
+object:
+  label: Objeto
+  description: Nombre o tipo de objeto
+
+fragmenten:
+  label: Fragmentos
+  description: Número de fragmentos
+
+beginDat:
+  label: Fecha inicial
+  description: Inicio del intervalo de datación
+
+eindDat:
+  label: Fecha final
+  description: Fin del intervalo de datación
+
+put:
+  label: Pozo
+  description: Número de pozo de la excavación
+
+vlak:
+  label: Nivel
+  description: Número de nivel dentro de la excavación
+
+spoor:
+  label: Contexto
+  description: Número de contexto para identificar el contexto arqueológico
+
+niveau1:
+  label: Nivel de clasificación 1
+  description: Nivel 1 de la clasificación funcional
+
+niveau2:
+  label: Nivel de clasificación 2
+  description: Nivel 2 de la clasificación funcional
+
+niveau3:
+  label: Nivel de clasificación 3
+  description: Nivel 3 de la clasificación funcional
+
+niveau4:
+  label: Nivel de clasificación 4
+  description: Nivel 4 de la clasificación funcional
+
+website:
+  label: En sitio web
+  description: Presente en el sitio web (1=Sí, 0=No)
+
+muntLandGeografisch:
+  label: "Moneda: País"
+  description: "Moneda: País (geográfico)"
+
+muntAutoriteitPolitiek:
+  label: "Moneda: Autoridad"
+  description: "Moneda: Autoridad emisora"
+
+muntMuntsoort:
+  label: "Moneda: Tipo"
+  description: "Moneda: Tipo de moneda"
+
+muntEenheidWaarde:
+  label: "Moneda: Valor"
+  description: "Moneda: Unidad o valor"
+
+muntMuntplaatsProductieplaats:
+  label: "Moneda: Ceca"
+  description: "Moneda: Ceca o lugar de producción"
+
+muntLengteDiameterInMm:
+  label: "Moneda: Diámetro (mm)"
+  description: "Moneda: Diámetro en milímetros"
+
+image:
+  label: Imagen
+  description: URL de la imagen
+
+citationUrl:
+  label: URL de citación
+  description: URL para referencia de citación
+
+trefwoorden:
+  label: Palabras clave
+  description: Palabras clave (solo para hallazgos fotografiados)
+
+vlakMin:
+  label: Nivel mínimo (NAP)
+  description: Altura mínima del nivel respecto al NAP (Nivel de Referencia de Ámsterdam)
+
+vlakMax:
+  label: Nivel máximo (NAP)
+  description: Altura máxima del nivel respecto al NAP (Nivel de Referencia de Ámsterdam)
+
+gewicht:
+  label: Peso (g)
+  description: Peso en gramos
+
+vak:
+  label: Cuadrícula
+  description: Número de cuadrícula dentro de la retícula de excavación
+
+pastAanHoortBij:
+  label: Encaja con / Pertenece a
+  description: Encaja con o pertenece a otro(s) número(s) de hallazgo
+
+objectdeel:
+  label: Parte del objeto
+  description: Parte del objeto (p. ej. borde, base, pared)
+
+# Cerámica
+aardewerkDsType:
+  label: "Cerámica: Código DS"
+  description: "Cerámica: Código de tipo Sistema Deventer"
+
+aardewerkEveRand:
+  label: "Cerámica: EVE borde"
+  description: "Cerámica: Equivalente de vasija estimado del borde"
+
+aardewerkEveBodem:
+  label: "Cerámica: EVE base"
+  description: "Cerámica: Equivalente de vasija estimado de la base"
+
+aardewerkHerkomst:
+  label: "Cerámica: Origen"
+  description: "Cerámica: Lugar de origen o producción"
+
+aardewerkObjectDiameterMm:
+  label: "Cerámica: Diámetro (mm)"
+  description: "Cerámica: Diámetro (reconstruido) del objeto en milímetros"
+
+aardewerkObjectHoogteMm:
+  label: "Cerámica: Altura (mm)"
+  description: "Cerámica: Altura (reconstruida) del objeto en milímetros"
+
+aardewerkFragmHoogteMm:
+  label: "Cerámica: Altura del fragmento (mm)"
+  description: "Cerámica: Altura del fragmento en milímetros"
+
+aardewerkOppBehandeling:
+  label: "Cerámica: Tratamiento de superficie"
+  description: "Cerámica: Técnica de tratamiento de superficie"
+
+aardewerkDecoratietechniek:
+  label: "Cerámica: Técnica decorativa"
+  description: "Cerámica: Técnica decorativa aplicada"
+
+aardewerkDecorgroepen:
+  label: "Cerámica: Grupos decorativos"
+  description: "Cerámica: Grupos de patrones decorativos"
+
+aardewerkMerk:
+  label: "Cerámica: Marca"
+  description: "Cerámica: Marca de fábrica o sello"
+
+# Vidrio
+glasDsType:
+  label: "Vidrio: Código DS"
+  description: "Vidrio: Código de tipo Sistema Deventer"
+
+glasKleur:
+  label: "Vidrio: Color"
+  description: "Vidrio: Color del vidrio"
+
+glasHerkomst:
+  label: "Vidrio: Origen"
+  description: "Vidrio: Lugar de origen o producción"
+
+glasEveRand:
+  label: "Vidrio: EVE borde"
+  description: "Vidrio: Equivalente de vasija estimado del borde"
+
+glasEveBodem:
+  label: "Vidrio: EVE base"
+  description: "Vidrio: Equivalente de vasija estimado de la base"
+
+glasObjectDiameterMm:
+  label: "Vidrio: Diámetro (mm)"
+  description: "Vidrio: Diámetro (reconstruido) del objeto en milímetros"
+
+glasObjectHoogteMm:
+  label: "Vidrio: Altura (mm)"
+  description: "Vidrio: Altura (reconstruida) del objeto en milímetros"
+
+glasFragmHoogteMm:
+  label: "Vidrio: Altura del fragmento (mm)"
+  description: "Vidrio: Altura del fragmento en milímetros"
+
+# Metal
+metaalDeelmaterialen:
+  label: "Metal: Materiales componentes"
+  description: "Metal: Materiales que lo componen"
+
+metaalGrootstelengteMm:
+  label: "Metal: Longitud (mm)"
+  description: "Metal: Longitud máxima en milímetros"
+
+metaalGrootstebreedteMm:
+  label: "Metal: Anchura (mm)"
+  description: "Metal: Anchura máxima en milímetros"
+
+metaalGrootstehoogteMm:
+  label: "Metal: Altura (mm)"
+  description: "Metal: Altura máxima en milímetros"
+
+metaalGrootstedikteMm:
+  label: "Metal: Grosor (mm)"
+  description: "Metal: Grosor máximo en milímetros"
+
+metaalDiameterMm:
+  label: "Metal: Diámetro (mm)"
+  description: "Metal: Diámetro en milímetros"
+
+metaalProductiecentrum:
+  label: "Metal: Centro de producción"
+  description: "Metal: Lugar de producción"
+
+# Materiales de construcción
+bouwmaterialenKleur:
+  label: "Materiales de construcción: Color"
+  description: "Materiales de construcción: Color"
+
+bouwmaterialenGrootstelengteMm:
+  label: "Materiales de construcción: Longitud (mm)"
+  description: "Materiales de construcción: Longitud máxima en milímetros"
+
+bouwmaterialenGrootstebreedteMm:
+  label: "Materiales de construcción: Anchura (mm)"
+  description: "Materiales de construcción: Anchura máxima en milímetros"
+
+bouwmaterialenGrootstedikteMm:
+  label: "Materiales de construcción: Grosor (mm)"
+  description: "Materiales de construcción: Grosor máximo en milímetros"
+
+bouwmaterialenAfbeelding:
+  label: "Materiales de construcción: Tipo de imagen"
+  description: "Materiales de construcción: Tipo de imagen o decoración"
+
+bouwmaterialenOppervlakte:
+  label: "Materiales de construcción: Superficie"
+  description: "Materiales de construcción: Tratamiento de superficie"
+
+# Fauna
+faunaSoort:
+  label: "Fauna: Especie"
+  description: "Fauna: Especie animal"
+
+faunaElement:
+  label: "Fauna: Elemento"
+  description: "Fauna: Elemento esquelético"
+
+faunaLengteMm:
+  label: "Fauna: Longitud (mm)"
+  description: "Fauna: Longitud en milímetros"
+
+faunaBreedteMm:
+  label: "Fauna: Anchura (mm)"
+  description: "Fauna: Anchura en milímetros"
+
+# Pipas de fumar
+rookpijpenModel:
+  label: "Pipas: Modelo"
+  description: "Pipas: Tipo de modelo de pipa"
+
+rookpijpenZijmerkLinks:
+  label: "Pipas: Marca lateral izquierda"
+  description: "Pipas: Marca en el lado izquierdo de la cazoleta"
+
+rookpijpenZijmerkRechts:
+  label: "Pipas: Marca lateral derecha"
+  description: "Pipas: Marca en el lado derecho de la cazoleta"
+
+rookpijpenBijmerkLinks:
+  label: "Pipas: Marca secundaria izquierda"
+  description: "Pipas: Marca secundaria en el lado izquierdo"
+
+rookpijpenBijmerkRechts:
+  label: "Pipas: Marca secundaria derecha"
+  description: "Pipas: Marca secundaria en el lado derecho"
+
+rookpijpenMerkOfHielmerk:
+  label: "Pipas: Marca del talón"
+  description: "Pipas: Marca o marca del talón"
+
+rookpijpenOppervlaktebehandelingKop:
+  label: "Pipas: Superficie de la cazoleta"
+  description: "Pipas: Tratamiento de superficie de la cazoleta"
+
+rookpijpenKopopening:
+  label: "Pipas: Abertura de la cazoleta"
+  description: "Pipas: Tipo de abertura de la cazoleta"
+
+rookpijpenRadering:
+  label: "Pipas: Ruleteado"
+  description: "Pipas: Decoración de ruleteado"
+
+rookpijpenSteelbehandeling:
+  label: "Pipas: Tratamiento del tubo"
+  description: "Pipas: Tratamiento de superficie del tubo"
+
+rookpijpenKwaliteit:
+  label: "Pipas: Calidad"
+  description: "Pipas: Clase de calidad"
+
+rookpijpenProductiecentrum:
+  label: "Pipas: Centro de producción"
+  description: "Pipas: Lugar de producción"
+
+rookpijpenPijpenmaker:
+  label: "Pipas: Fabricante"
+  description: "Pipas: Nombre del fabricante de pipas"
+
+# Madera
+houtGrootstelengteMm:
+  label: "Madera: Longitud (mm)"
+  description: "Madera: Longitud máxima en milímetros"
+
+houtGrootstebreedteMm:
+  label: "Madera: Anchura (mm)"
+  description: "Madera: Anchura máxima en milímetros"
+
+houtGrootstehoogteMm:
+  label: "Madera: Altura (mm)"
+  description: "Madera: Altura máxima en milímetros"
+
+houtGrootstedikteMm:
+  label: "Madera: Grosor (mm)"
+  description: "Madera: Grosor máximo en milímetros"
+
+houtDiameterMm:
+  label: "Madera: Diámetro (mm)"
+  description: "Madera: Diámetro en milímetros"
+
+# Plástico
+kunststofGrootstelengteMm:
+  label: "Plástico: Longitud (mm)"
+  description: "Plástico: Longitud máxima en milímetros"
+
+kunststofGrootstebreedteMm:
+  label: "Plástico: Anchura (mm)"
+  description: "Plástico: Anchura máxima en milímetros"
+
+kunststofDiameterMm:
+  label: "Plástico: Diámetro (mm)"
+  description: "Plástico: Diámetro en milímetros"
+
+kunststofEigenaar:
+  label: "Plástico: Propietario"
+  description: "Plástico: Identificación del propietario"
+
+kunststofEenheidWaarde:
+  label: "Plástico: Unidad/Valor"
+  description: "Plástico: Unidad o valor"
+
+# Piedra natural
+natuursteenSubsoort:
+  label: "Piedra natural: Subtipo"
+  description: "Piedra natural: Subtipo de piedra"
+
+natuursteenGrootstelengteMm:
+  label: "Piedra natural: Longitud (mm)"
+  description: "Piedra natural: Longitud máxima en milímetros"
+
+natuursteenGrootstebreedteMm:
+  label: "Piedra natural: Anchura (mm)"
+  description: "Piedra natural: Anchura máxima en milímetros"
+
+natuursteenGrootstedikteMm:
+  label: "Piedra natural: Grosor (mm)"
+  description: "Piedra natural: Grosor máximo en milímetros"
+
+natuursteenDiameterMm:
+  label: "Piedra natural: Diámetro (mm)"
+  description: "Piedra natural: Diámetro en milímetros"
+
+natuursteenProductiesporen:
+  label: "Piedra natural: Huellas de producción"
+  description: "Piedra natural: Huellas de técnicas de producción"
+
+# Planta
+plantSoort:
+  label: "Planta: Especie"
+  description: "Planta: Especie vegetal"
+
+plantGrootstelengteMm:
+  label: "Planta: Longitud (mm)"
+  description: "Planta: Longitud máxima en milímetros"
+
+plantGrootstebreedteMm:
+  label: "Planta: Anchura (mm)"
+  description: "Planta: Anchura máxima en milímetros"
+
+plantGrootstedikteMm:
+  label: "Planta: Grosor (mm)"
+  description: "Planta: Grosor máximo en milímetros"
+
+# Cuero
+leerDeelmaterialen:
+  label: "Cuero: Materiales componentes"
+  description: "Cuero: Materiales que lo componen"
+
+leerLeersoort:
+  label: "Cuero: Tipo de cuero"
+  description: "Cuero: Tipo de cuero"

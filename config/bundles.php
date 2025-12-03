@@ -26,4 +26,5 @@ return [
     Survos\LinguaBundle\SurvosLinguaBundle::class => ['all' => true],
     Survos\StateBundle\SurvosStateBundle::class => ['all' => true],
     Survos\TranslatorBundle\SurvosTranslatorBundle::class => ['all' => true],
+    Symfony\UX\Translator\UxTranslatorBundle::class => ['all' => true],
 ];

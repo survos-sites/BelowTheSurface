@@ -1,6 +1,17 @@
 framework:
     default_locale: en
-    enabled_locales: [en,nl,es]
+    enabled_locales: [en,nl,es,fr,de]
     translator:
         default_path: '%kernel.project_dir%/translations'
         providers:
+#        pseudo_localization:
+#            # replace characters by their accented version
+#            accents: true
+#            # wrap strings with brackets
+#            brackets: true
+#            # controls how many extra characters are added to make text longer
+#            expansion_factor: 1.4
+#            # maintain the original HTML tags of the translated contents
+#            parse_html: true
+#            # also translate the contents of these HTML attributes
+#            localizable_html_attributes: ['title']

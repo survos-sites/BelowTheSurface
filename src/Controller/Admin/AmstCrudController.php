@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use Survos\EzBundle\Controller\BaseCrudController;
 
@@ -28,6 +29,7 @@ class AmstCrudController extends BaseCrudController
         }
 
     }
+
     public static function getEntityFqcn(): string
     {
         return \App\Entity\Amst::class;

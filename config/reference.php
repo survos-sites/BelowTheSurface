@@ -1470,6 +1470,7 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *     searchKey?: scalar|null, // Default: "%env(default::MEILI_SEARCH_KEY)%"
  *     meiliPrefix?: scalar|null, // Default: "%env(default::MEILI_PREFIX)%"
  *     passLocale?: bool, // Default: false
+ *     multiLingual?: bool, // turn on multi-lingual indexing // Default: false
  *     maxValuesPerFacet?: int, // Default: 1000
  *     tools?: list<array{ // Default: []
  *         label: scalar|null,
@@ -1567,6 +1568,13 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *         plan?: scalar|null, // For DeepL: "free" or "pro". Determines default host if base_uri is not set. // Default: null
  *     }>,
  * }
+ * @psalm-type UxTranslatorConfig = array{
+ *     dump_directory?: scalar|null, // Default: "%kernel.project_dir%/var/translations"
+ *     domains?: string|array{ // List of domains to include/exclude from the generated translations. Prefix with a `!` to exclude a domain.
+ *         type?: scalar|null,
+ *         elements?: list<scalar|null>,
+ *     },
+ * }
  * @psalm-type ConfigType = array{
  *     imports?: ImportsConfig,
  *     parameters?: ParametersConfig,
@@ -1591,6 +1599,7 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *     survos_lingua?: SurvosLinguaConfig,
  *     survos_state?: SurvosStateConfig,
  *     survos_translator?: SurvosTranslatorConfig,
+ *     ux_translator?: UxTranslatorConfig,
  *     "when@dev"?: array{
  *         imports?: ImportsConfig,
  *         parameters?: ParametersConfig,
@@ -1619,6 +1628,7 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *         survos_lingua?: SurvosLinguaConfig,
  *         survos_state?: SurvosStateConfig,
  *         survos_translator?: SurvosTranslatorConfig,
+ *         ux_translator?: UxTranslatorConfig,
  *     },
  *     "when@prod"?: array{
  *         imports?: ImportsConfig,
@@ -1644,6 +1654,7 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *         survos_lingua?: SurvosLinguaConfig,
  *         survos_state?: SurvosStateConfig,
  *         survos_translator?: SurvosTranslatorConfig,
+ *         ux_translator?: UxTranslatorConfig,
  *     },
  *     "when@test"?: array{
  *         imports?: ImportsConfig,
@@ -1671,6 +1682,7 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *         survos_lingua?: SurvosLinguaConfig,
  *         survos_state?: SurvosStateConfig,
  *         survos_translator?: SurvosTranslatorConfig,
+ *         ux_translator?: UxTranslatorConfig,
  *     },
  *     ...<string, ExtensionType|array{ // extra keys must follow the when@%env% pattern or match an extension alias
  *         imports?: ImportsConfig,
