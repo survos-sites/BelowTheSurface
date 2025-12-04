@@ -21,6 +21,7 @@ foreach ($autoloadCandidates as $autoload) {
 use League\Csv\Reader;
 use Castor\Attribute\{AsOption,AsArgument};
 
+
 try {
     import('.castor/vendor/tacman/castor-tools/castor.php');
 } catch (Throwable $e) {
@@ -29,6 +30,7 @@ try {
 }
 
 const EN_FILENAME='data/amst_english.csv';
+const APP_NAMESPACE='app';
 
 /**
  * Return the available demo datasets, keyed by code.
@@ -52,17 +54,22 @@ function demo_datasets(): array
 
 #[AsTask('build')]
 function build(
-    #[AsOption("limit the number of records to import")] ?int $limit=null,
+    #[AsOption("limit the number of records to import")] ?int $limit=50,
 ): void
 {
+    run("bin/console d:sc:update --force");
     download(); // download the data
-    load_database('amst', $limit); // exports to .jsonl and then imports
+    createDictionary(); // download the English and create the map
+    load_database($limit); // exports to .jsonl and then imports
+    translate('en');
 }
 
 #[AsTask('translate', "Translate the strings to English in babel")]
-function translate(): void
+function translate(
+    #[AsOption("to which language")] string $locale
+): void
 {
-    run('bin/console babel:translate');
+    run('bin/console babel:translate ' . $locale);
 }
 
 #[AsTask('download')]
@@ -109,9 +116,6 @@ function download(?string $code=null): void
 #[AsTask('dictionary')]
 function createDictionary()
 {
-
-    $translatableFields = ['object', 'subcategorie', 'niveau1', 'niveau2', 'niveau3', 'niveau4'];
-
     $enReader = Reader::from('data/amst_english.csv');
     $enReader->setHeaderOffset(0);
 
@@ -140,7 +144,8 @@ function createDictionary()
         }
     }
     file_put_contents('data/amst_dictionary.json', json_encode($dict, JSON_PRETTY_PRINT));
-    dd();
+    io()->writeln("data/amst_dictionary.json written");
+    return;
 
 
 // Result: ['Spel & recreatie' => 'Games & Recreation', ...]
@@ -242,6 +247,9 @@ function load_database(
         run($convertCmd);
     }
 
+    // create the indices so load will populate them
+    run('bin/console meili:settings:update --force');
+
     // 4) Import entities into Doctrine.
     //
     // Note: This assumes your entity class is App\Entity\<Code>, e.g. App\Entity\Car
@@ -261,7 +269,6 @@ function load_database(
         $limitArg
     );
     io()->writeln($importCmd);
-    dd($importCmd);
     run($importCmd);
     // In the new world, code generation (code:entity) and templates are explicit steps.
     // This Castor task focuses on:
