@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace App\Controller\Admin;
 
 use EasyCorp\Bundle\EasyAdminBundle\Attribute\AdminDashboard;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -20,8 +21,7 @@ final class MeiliDashboardController extends AbstractDashboardController
 
     public function __construct(
         private readonly MeiliEasyAdminDashboardHelper $dashboardHelper,
-        private readonly MeiliEasyAdminMenuFactory $menuFactory,
-        private TranslatorInterface $translator,
+        private readonly MeiliEasyAdminMenuFactory $menuFactory
     ) {
     }
 
@@ -39,6 +39,14 @@ final class MeiliDashboardController extends AbstractDashboardController
             ->configureDashboard(Dashboard::new())
             ->setTranslationDomain('amst');
     }
+
+    public function configureAssets(): Assets
+    {
+        return Assets::new()
+            ->useCustomIconSet() // use ux_icons
+            ;
+    }
+
 
     /**
      * @return iterable<MenuItem>

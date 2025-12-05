@@ -1469,6 +1469,7 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *     transport?: scalar|null, // Default: "%env(default::MEILI_TRANSPORT)%"
  *     searchKey?: scalar|null, // Default: "%env(default::MEILI_SEARCH_KEY)%"
  *     meiliPrefix?: scalar|null, // Default: "%env(default::MEILI_PREFIX)%"
+ *     translationStyle?: scalar|null, // Default: "simple"
  *     passLocale?: bool, // Default: false
  *     multiLingual?: bool, // turn on multi-lingual indexing // Default: false
  *     maxValuesPerFacet?: int, // Default: 1000

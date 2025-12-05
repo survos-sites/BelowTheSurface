@@ -28,6 +28,7 @@ use Survos\BabelBundle\Attribute\BabelLocale;
  */
 #[Entity(repositoryClass: AmstRepository::class)]
 #[MeiliIndex(
+    ui: ['icon' => 'Amst'],
 	primaryKey: 'code',
 	filterable: self::FILTERABLE_FIELDS,
 	sortable: self::SORTABLE_FIELDS,
