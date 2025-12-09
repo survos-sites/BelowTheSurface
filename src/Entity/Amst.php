@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
+use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\GetCollection;
 use App\Repository\AmstRepository;
 use App\Workflow\AmstWFDefinition;
 use App\Workflow\AmstWorkflow;
@@ -35,7 +38,13 @@ use Survos\BabelBundle\Attribute\BabelLocale;
 	searchable: self::SEARCHABLE_FIELDS,
 )]
 #[BabelStorage()]
-#[BabelLocale(locale: 'nl')]
+#[BabelLocale(locale: 'nl', targetLocales: ['fr', 'en'])]
+#[ApiResource(
+    operations: [
+        new Get(),
+        new GetCollection()
+    ]
+)]
 final class Amst implements MarkingInterface, BabelHooksInterface
 {
     use MarkingTrait;
@@ -44,12 +53,6 @@ final class Amst implements MarkingInterface, BabelHooksInterface
     public function __construct()
     {
         $this->marking = AmstWFDefinition::PLACE_NEW;
-    }
-
-    #[BabelLocale(locale: 'nl')]
-    public function getSourceLocale(): string
-    {
-        return 'nl';
     }
 
 	public const FILTERABLE_FIELDS = [
