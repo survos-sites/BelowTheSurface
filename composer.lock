@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2900539af8f541d19a1b619b1a664f9c",
+    "content-hash": "992b99886b659679873fbb5a02527b2a",
     "packages": [
         {
             "name": "adbario/php-dot-notation",
@@ -3974,7 +3974,7 @@
         },
         {
             "name": "survos/babel-bundle",
-            "version": "2.0.82",
+            "version": "2.0.83",
             "source": {
                 "type": "git",
                 "url": "https://github.com/survos/babel-bundle.git",
@@ -4026,7 +4026,7 @@
             "description": "Lightweight translation base (Str/StrTranslation) + Translatable attribute & subscriber",
             "support": {
                 "issues": "https://github.com/survos/babel-bundle/issues",
-                "source": "https://github.com/survos/babel-bundle/tree/2.0.82"
+                "source": "https://github.com/survos/babel-bundle/tree/2.0.83"
             },
             "funding": [
                 {
@@ -4038,7 +4038,7 @@
         },
         {
             "name": "survos/core-bundle",
-            "version": "2.0.82",
+            "version": "2.0.83",
             "source": {
                 "type": "git",
                 "url": "https://github.com/survos/core-bundle.git",
@@ -4194,7 +4194,7 @@
         },
         {
             "name": "survos/import-bundle",
-            "version": "2.0.82",
+            "version": "2.0.83",
             "source": {
                 "type": "git",
                 "url": "https://github.com/survos/import-bundle.git",
@@ -4244,7 +4244,7 @@
             ],
             "support": {
                 "issues": "https://github.com/survos/import-bundle/issues",
-                "source": "https://github.com/survos/import-bundle/tree/2.0.82"
+                "source": "https://github.com/survos/import-bundle/tree/2.0.83"
             },
             "funding": [
                 {
@@ -4256,7 +4256,7 @@
         },
         {
             "name": "survos/jsonl-bundle",
-            "version": "2.0.82",
+            "version": "2.0.83",
             "source": {
                 "type": "git",
                 "url": "https://github.com/survos/jsonl-bundle.git",
@@ -4305,7 +4305,7 @@
             "description": "Fast, concurrent, resumable, strictly-ordered JSONL ingestion utilities for Symfony 7.3 / PHP 8.4",
             "support": {
                 "issues": "https://github.com/survos/jsonl-bundle/issues",
-                "source": "https://github.com/survos/jsonl-bundle/tree/2.0.82"
+                "source": "https://github.com/survos/jsonl-bundle/tree/2.0.83"
             },
             "funding": [
                 {
@@ -4465,7 +4465,7 @@
         },
         {
             "name": "survos/state-bundle",
-            "version": "2.0.82",
+            "version": "2.0.83",
             "source": {
                 "type": "git",
                 "url": "https://github.com/survos/state-bundle.git",
@@ -4540,7 +4540,7 @@
             ],
             "support": {
                 "issues": "https://github.com/survos/state-bundle/issues",
-                "source": "https://github.com/survos/state-bundle/tree/2.0.82"
+                "source": "https://github.com/survos/state-bundle/tree/2.0.83"
             },
             "funding": [
                 {
@@ -4552,7 +4552,7 @@
         },
         {
             "name": "survos/translator-bundle",
-            "version": "2.0.82",
+            "version": "2.0.83",
             "source": {
                 "type": "git",
                 "url": "https://github.com/survos/translator-bundle.git",
@@ -12052,12 +12052,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "eeebba0043eaddd36fd8747cc144b9b661d9b392"
+                "reference": "75d4ccd9c135c4ac904cd4211a43e51d12feb1ef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/eeebba0043eaddd36fd8747cc144b9b661d9b392",
-                "reference": "eeebba0043eaddd36fd8747cc144b9b661d9b392",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/75d4ccd9c135c4ac904cd4211a43e51d12feb1ef",
+                "reference": "75d4ccd9c135c4ac904cd4211a43e51d12feb1ef",
                 "shasum": ""
             },
             "conflict": {
@@ -12309,6 +12309,7 @@
                 "feehi/feehicms": "<=2.1.1",
                 "fenom/fenom": "<=2.12.1",
                 "filament/actions": ">=3.2,<3.2.123",
+                "filament/filament": ">=4,<4.3.1",
                 "filament/infolists": ">=3,<3.2.115",
                 "filament/tables": ">=3,<3.2.115",
                 "filegator/filegator": "<7.8",
@@ -12563,6 +12564,7 @@
                 "netgen/tagsbundle": ">=3.4,<3.4.11|>=4,<4.0.15",
                 "nette/application": ">=2,<2.0.19|>=2.1,<2.1.13|>=2.2,<2.2.10|>=2.3,<2.3.14|>=2.4,<2.4.16|>=3,<3.0.6",
                 "nette/nette": ">=2,<2.0.19|>=2.1,<2.1.13",
+                "neuron-core/neuron-ai": "<=2.8.11",
                 "nilsteampassnet/teampass": "<3.1.3.1-dev",
                 "nitsan/ns-backup": "<13.0.1",
                 "nonfiction/nterchange": "<4.1.1",
@@ -12582,7 +12584,7 @@
                 "october/system": "<3.7.5",
                 "oliverklee/phpunit": "<3.5.15",
                 "omeka/omeka-s": "<4.0.3",
-                "onelogin/php-saml": "<2.10.4",
+                "onelogin/php-saml": "<2.21.1|>=3,<3.8.1|>=4,<4.3.1",
                 "oneup/uploader-bundle": ">=1,<1.9.3|>=2,<2.1.5",
                 "open-web-analytics/open-web-analytics": "<1.8.1",
                 "opencart/opencart": ">=0",
@@ -12716,8 +12718,8 @@
                 "shopware/core": "<6.6.10.9-dev|>=6.7,<6.7.4.1-dev",
                 "shopware/platform": "<6.6.10.7-dev|>=6.7,<6.7.3.1-dev",
                 "shopware/production": "<=6.3.5.2",
-                "shopware/shopware": "<=5.7.17|>=6.7,<6.7.2.1-dev",
-                "shopware/storefront": "<=6.4.8.1|>=6.5.8,<6.5.8.7-dev",
+                "shopware/shopware": "<=5.7.17|>=6.4.6,<6.6.10.10-dev|>=6.7,<6.7.5.1-dev",
+                "shopware/storefront": "<6.6.10.10-dev|>=6.7,<6.7.5.1-dev",
                 "shopxo/shopxo": "<=6.4",
                 "showdoc/showdoc": "<2.10.4",
                 "shuchkin/simplexlsx": ">=1.0.12,<1.1.13",
@@ -13044,7 +13046,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-12-08T23:05:37+00:00"
+            "time": "2025-12-09T18:07:05+00:00"
         },
         {
             "name": "sebastian/cli-parser",
@@ -13997,7 +13999,7 @@
         },
         {
             "name": "survos/code-bundle",
-            "version": "2.0.82",
+            "version": "2.0.83",
             "source": {
                 "type": "git",
                 "url": "https://github.com/survos/code-bundle.git",
@@ -14062,7 +14064,7 @@
             ],
             "support": {
                 "issues": "https://github.com/survos/code-bundle/issues",
-                "source": "https://github.com/survos/code-bundle/tree/2.0.82"
+                "source": "https://github.com/survos/code-bundle/tree/2.0.83"
             },
             "funding": [
                 {
@@ -14606,5 +14608,5 @@
         "ext-iconv": "*"
     },
     "platform-dev": {},
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.9.0"
 }
