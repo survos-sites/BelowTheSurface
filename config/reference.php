@@ -1862,6 +1862,21 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  * @psalm-type SurvosDeploymentConfig = array{
  *     enabled?: bool, // Default: true
  * }
+ * @psalm-type InspectorConfig = array{
+ *     enabled?: bool, // Default: true
+ *     url?: scalar|null, // Default: "https://ingest.inspector.dev"
+ *     ingestion_key?: scalar|null, // Default: null
+ *     unhandled_exceptions?: bool, // Default: true
+ *     messenger?: bool, // Default: true
+ *     query?: bool, // Default: true
+ *     query_bindings?: bool, // Default: true
+ *     templates?: bool, // Default: true
+ *     user?: bool, // Default: true
+ *     transport?: scalar|null, // Default: "async"
+ *     ignore_routes?: list<scalar|null>,
+ *     ignore_commands?: list<scalar|null>,
+ *     ignore_messages?: list<scalar|null>,
+ * }
  * @psalm-type ConfigType = array{
  *     imports?: ImportsConfig,
  *     parameters?: ParametersConfig,
@@ -1889,6 +1904,7 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *     ux_translator?: UxTranslatorConfig,
  *     nelmio_cors?: NelmioCorsConfig,
  *     api_platform?: ApiPlatformConfig,
+ *     inspector?: InspectorConfig,
  *     "when@dev"?: array{
  *         imports?: ImportsConfig,
  *         parameters?: ParametersConfig,
@@ -1921,6 +1937,7 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *         nelmio_cors?: NelmioCorsConfig,
  *         api_platform?: ApiPlatformConfig,
  *         survos_deployment?: SurvosDeploymentConfig,
+ *         inspector?: InspectorConfig,
  *     },
  *     "when@prod"?: array{
  *         imports?: ImportsConfig,
@@ -1949,6 +1966,7 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *         ux_translator?: UxTranslatorConfig,
  *         nelmio_cors?: NelmioCorsConfig,
  *         api_platform?: ApiPlatformConfig,
+ *         inspector?: InspectorConfig,
  *     },
  *     "when@test"?: array{
  *         imports?: ImportsConfig,
@@ -1980,6 +1998,7 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *         nelmio_cors?: NelmioCorsConfig,
  *         api_platform?: ApiPlatformConfig,
  *         survos_deployment?: SurvosDeploymentConfig,
+ *         inspector?: InspectorConfig,
  *     },
  *     ...<string, ExtensionType|array{ // extra keys must follow the when@%env% pattern or match an extension alias
  *         imports?: ImportsConfig,
