@@ -117,9 +117,10 @@
         }
     },
     "require-dev": {
-        "roave/security-advisories": "dev-latest",
         "phpunit/phpunit": "^12.5.4",
+        "roave/security-advisories": "dev-latest",
         "survos/code-bundle": "^2.0.86",
+        "survos/deployment-bundle": "^2.0",
         "symfony/browser-kit": "^7.4  || ^8.0",
         "symfony/css-selector": "^7.4  || ^8.0",
         "symfony/debug-bundle": "^7.4  || ^8.0",

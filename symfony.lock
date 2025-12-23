@@ -109,6 +109,9 @@
     "survos/core-bundle": {
         "version": "2.0.77"
     },
+    "survos/deployment-bundle": {
+        "version": "2.0.89"
+    },
     "survos/ez-bundle": {
         "version": "2.0.77"
     },

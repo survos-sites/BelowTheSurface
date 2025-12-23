@@ -29,4 +29,5 @@ return [
     Symfony\UX\Translator\UxTranslatorBundle::class => ['all' => true],
     Nelmio\CorsBundle\NelmioCorsBundle::class => ['all' => true],
     ApiPlatform\Symfony\Bundle\ApiPlatformBundle::class => ['all' => true],
+    Survos\DeploymentBundle\SurvosDeploymentBundle::class => ['dev' => true, 'test' => true],
 ];
