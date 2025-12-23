@@ -51,6 +51,11 @@ class EnhanceRecordListener
 //                        dd($response->getStatusCode());
 //                        dd(array_keys($record));
                     }
+                    foreach ($record as $var=>$value) {
+                        if (in_array($var, ['trefwoorden','vlak_min', 'vlak'])) {
+                            $record[$var] = explode(';', $value);
+                        }
+                    }
                     $record['citation_url'] = sprintf('https://belowthesurface.amsterdam/nl/vondst/%s', $code);
 //                    dd($record['citation_url']);
                     $code = str_replace('.', '-', $code);

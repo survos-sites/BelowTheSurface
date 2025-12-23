@@ -38,7 +38,7 @@ use Survos\BabelBundle\Attribute\BabelLocale;
 	searchable: self::SEARCHABLE_FIELDS,
 )]
 #[BabelStorage()]
-#[BabelLocale(locale: 'nl', targetLocales: ['fr', 'en'])]
+#[BabelLocale(locale: 'nl')]
 #[ApiResource(
     operations: [
         new Get(),

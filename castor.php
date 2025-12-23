@@ -6,7 +6,6 @@ use Survos\JsonlBundle\IO\JsonlReader;
 use Survos\MeiliBundle\Model\Dataset;
 
 use function Castor\{io, run, capture, import, http_download};
-
 $autoloadCandidates = [
     __DIR__ . '/vendor/autoload.php',
     __DIR__ . '/../vendor/autoload.php',
@@ -20,7 +19,6 @@ foreach ($autoloadCandidates as $autoload) {
 }
 use League\Csv\Reader;
 use Castor\Attribute\{AsOption,AsArgument};
-
 
 try {
     import('.castor/vendor/tacman/castor-tools/castor.php');
@@ -52,9 +50,10 @@ function demo_datasets(): array
     return $map;
 }
 
-#[AsTask('build')]
+#[AsTask('build', APP_NAMESPACE, "download and load")]
 function build(
-    #[AsOption("limit the number of records to import")] ?int $limit=50,
+    #[AsOption(description: "limit the number of records to import")] ?int $limit=50,
+    #[AsOption(description: "Update the sqlite database")] ?bool $sqlite=null,
 ): void
 {
     run("bin/console d:sc:update --force");
@@ -64,15 +63,15 @@ function build(
     translate('en');
 }
 
-#[AsTask('translate', "Translate the strings to English in babel")]
+#[AsTask('translate', APP_NAMESPACE, "Translate the strings to English in babel")]
 function translate(
-    #[AsOption("to which language")] string $locale
+    #[AsOption(description: "to which language")] string $locale='en'
 ): void
 {
     run('bin/console babel:translate ' . $locale);
 }
 
-#[AsTask('download')]
+#[AsTask('download', APP_NAMESPACE, "Download the nl and en csv files")]
 function download(?string $code=null): void
 {
     if (!file_exists(EN_FILENAME)) {
@@ -113,7 +112,7 @@ function download(?string $code=null): void
 
 }
 
-#[AsTask('dictionary')]
+#[AsTask('dictionary', APP_NAMESPACE, "create the .jsonl dictionary file used by babel:translate listener")]
 function createDictionary()
 {
     $enReader = Reader::from('data/amst_english.csv');
@@ -128,6 +127,12 @@ function createDictionary()
     $multiIterator = new MultipleIterator(MultipleIterator::MIT_NEED_ALL);
     $multiIterator->attachIterator($nlReader->getRecords());
     $multiIterator->attachIterator($enReader->getRecords());
+    io()->title("Creating English-language dictionary");
+    $filename = 'data/amst_dictionary.json';
+    if (file_exists($filename)) {
+        io()->warning("The file '{$filename}' already exists");
+        return;
+    }
 
     foreach ($multiIterator as [$nlRecord, $enRecord]) {
         // Sanity check: ensure rows are aligned
@@ -137,80 +142,35 @@ function createDictionary()
         foreach (array_keys($nlRecord) as $field) {
             $nlValue = trim($nlRecord[$field] ?? '');
             $enValue = trim($enRecord[$field] ?? '');
+            // skip numbers, blanks, etc.
+            if (is_numeric($nlValue) || empty($nlValue)) {
+                continue;
+            }
+            if (in_array($field, ['vondstnummer', 'project_code', 'categorie', 'vak', 'vlak',
+                'rookpijpen_productiecentrum',
+                'rookpijpen_pijpenmaker',
+                'glas_ds_type',
+                'aardewerk_ds_type',
+                'aardewerk_herkomst',
+                'leer_archeologischobjecttype',
+                'past_aan_hoort_bij',
+                ])) {
+                continue; // skip code fields, really should be translatable fields!
+            }
+            if ($nlValue  == $enValue) {
+//                dump(field: $field, value: $nlValue);
+//                continue;
+            }
 
-//            if ($nlValue !== '' && $enValue !== '' && $nlValue !== $enValue) {
+            if ($nlValue !== '' && $enValue !== '' /* && $nlValue !== $enValue */) {
                 $dict[$nlValue] = $enValue;
-//            }
+            }
+            // @todo: split the lists, e.g.
+            // "tekst; wapen; kroon; Koninkrijk der Nederlanden; merklood" => "text; coat of arms; crown; Kingdom of the Netherlands; product seal"
         }
     }
-    file_put_contents('data/amst_dictionary.json', json_encode($dict, JSON_PRETTY_PRINT));
+    file_put_contents($filename, json_encode($dict, JSON_PRETTY_PRINT));
     io()->writeln("data/amst_dictionary.json written");
-    return;
-
-
-// Result: ['Spel & recreatie' => 'Games & Recreation', ...]
-
-    $dict = [];
-    $enReader = \League\Csv\Reader::from(EN_FILENAME);
-    $enReader->setHeaderOffset(0);
-//    $iterator = $enReader->getIterator();
-
-//        $file = 'data/amst_nl.jsonl';
-
-    $nlReader = \League\Csv\Reader::from('data/amst.csv');
-    $nlReader->setHeaderOffset(0);
-//    $iterator = $nlReader->getIterator();
-
-//        $nlReader =    new JsonlReader($file);
-//        $enReader = new JsonlReader(EN_FILENAME);
-        $enIterator = $enReader->getIterator();
-        $nlIterator = $nlReader->getIterator();
-        $translatableFields = ['object', 'subcategorie', 'niveau1', 'niveau2', 'niveau3', 'niveau4'];
-        $idx = 0;
-//        dump($enIterator->current());
-        foreach ($nlIterator as $csv) {
-            $lookup = SurvosUtils::removeNullsAndEmptyArrays($csv);
-            foreach ($lookup as $var=>$value) {
-                if (!in_array($var, $translatableFields)) {
-                    dump($var, $translatableFields);
-                    continue;
-                }
-                $key = md5($value);
-                $dict[$key] = $value;
-            }
-        }
-
-        // loop through the English-language version and find the mapped keys
-
-        foreach ($enIterator as $en) {
-//        while ($en = $enIterator->current()) {
-            $idx++;
-            SurvosUtils::removeNullsAndEmptyArrays($en);
-            dump($en);
-            $srcRecord = $nlIterator->next();
-            dd($srcRecord);
-            $srcRecord = $nlIterator->current();
-            $enIterator->next();
-            $nlIterator->next();
-//                $srcRecord = $enIterator->next();
-            assert($srcRecord['code'] == $en['code']);
-            foreach ($translatableFields as $translatableField) {
-                if ($orig = $srcRecord[$translatableField] ?? null) {
-                    if (!array_key_exists($translatableField, $en)) {
-                        dd($srcRecord, $en, $translatableField);
-                    }
-                    SurvosUtils::assertKeyExists($translatableField, $en, "Missing $translatableField $orig in row " . $idx);
-                    $trans = $en[$translatableField];
-                    $key = md5($orig);
-//                        $key = BabelRuntime::hash($trans, 'srcRecord');
-                    if (!array_key_exists($key, $dict)) {
-                        $dict[$key] = $trans;
-                    }
-                }
-            }
-            dd($dict);
-        }
-        dump(count($dict));
 }
 
 /**
