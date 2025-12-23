@@ -45,7 +45,6 @@ use Survos\BabelBundle\Attribute\BabelLocale;
         new GetCollection()
     ]
 )]
-#[Assert\EnableAutoMapping]
 final class Amst implements MarkingInterface, BabelHooksInterface
 {
     use MarkingTrait;
