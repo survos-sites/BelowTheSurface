@@ -45,6 +45,7 @@ use Survos\BabelBundle\Attribute\BabelLocale;
         new GetCollection()
     ]
 )]
+#[Assert\EnableAutoMapping]
 final class Amst implements MarkingInterface, BabelHooksInterface
 {
     use MarkingTrait;
@@ -93,7 +94,7 @@ final class Amst implements MarkingInterface, BabelHooksInterface
 	 * @length 15–16 chars
 	 * @facetCandidate true
 	 */
-	#[Column(length: 16, nullable: true)]
+	#[Column(length: 32, nullable: true)]
 	public ?string $vondstnummer = null;
 
 	/**
@@ -105,7 +106,7 @@ final class Amst implements MarkingInterface, BabelHooksInterface
 	 * @facetCandidate true
 	 * @booleanLike true
 	 */
-	#[Column(length: 4, nullable: true)]
+	#[Column(length: 24, nullable: true)]
 	public ?string $projectCode = null;
 
 	/**
@@ -238,7 +239,7 @@ final class Amst implements MarkingInterface, BabelHooksInterface
 	 * @facetCandidate true
 	 * @booleanLike true
 	 */
-	#[Column(length: 11, nullable: true)]
+	#[Column(length: 32, nullable: true)]
 	public ?string $muntLandGeografisch = null;
 
 	/**
@@ -250,7 +251,7 @@ final class Amst implements MarkingInterface, BabelHooksInterface
 	 * @facetCandidate true
 	 * @booleanLike true
 	 */
-	#[Column(length: 8, nullable: true)]
+	#[Column(length: 48, nullable: true)]
 	public ?string $muntAutoriteitPolitiek = null;
 
 	/**
@@ -262,7 +263,7 @@ final class Amst implements MarkingInterface, BabelHooksInterface
 	 * @facetCandidate true
 	 * @booleanLike true
 	 */
-	#[Column(length: 7, nullable: true)]
+	#[Column(length: 48, nullable: true)]
 	public ?string $muntMuntsoort = null;
 
 	/**
@@ -285,7 +286,7 @@ final class Amst implements MarkingInterface, BabelHooksInterface
 	 * @facetCandidate true
 	 * @booleanLike true
 	 */
-	#[Column(length: 8, nullable: true)]
+	#[Column(length: 32, nullable: true)]
 	public ?string $muntMuntplaatsProductieplaats = null;
 
 	/**
@@ -306,7 +307,7 @@ final class Amst implements MarkingInterface, BabelHooksInterface
 	 * @length 59–60 chars
 	 * @facetCandidate true
 	 */
-	#[Column(length: 60, nullable: true)]
+	#[Column(length: 160, nullable: true)]
 	public ?string $citationUrl = null;
 
 	/**
@@ -316,7 +317,7 @@ final class Amst implements MarkingInterface, BabelHooksInterface
 	 * @length 15–16 chars
 	 * @facetCandidate true
 	 */
-	#[Column(length: 16, nullable: false)]
+	#[Column(length: 22, nullable: false)] // now with prefix and hyphen
 	#[Id]
 	public ?string $code = null;
 
@@ -350,7 +351,7 @@ final class Amst implements MarkingInterface, BabelHooksInterface
 	 * @facetCandidate true
 	 * @booleanLike true
 	 */
-	#[Column(length: 77, nullable: true)]
+	#[Column(length: 255, nullable: true)]
 	public ?string $image = null;
 
 	/**
@@ -414,14 +415,15 @@ final class Amst implements MarkingInterface, BabelHooksInterface
      * @facetCandidate true
      * @booleanLike true
      */
-    #[Column(length: 19, nullable: true)]
+    #[Column(length: 128, nullable: true)]
     private ?string $subcategorieBacking = null;
+
     #[Translatable(context: NULL)]
     public ?string $subcategorie {
         get => $this->resolveTranslatable('subcategorie', $this->subcategorieBacking);
-        set => $this->subcategorieBacking = $value;
+        set =>
+            $this->subcategorieBacking = $value;
     }
-
 
 
 

@@ -72,6 +72,7 @@ class EnhanceRecordListener
 //                    dd($record['image'], $record['citation_url']);
                     break;
             }
+//            dd($record, $event->row);
 
             $event->row = $record;
         }
