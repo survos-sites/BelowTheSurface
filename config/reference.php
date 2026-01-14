@@ -1574,15 +1574,6 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         plan?: scalar|null|Param, // For DeepL: "free" or "pro". Determines default host if base_uri is not set. // Default: null
  *     }>,
  * }
- * @psalm-type UxTranslatorConfig = array{
- *     dump_directory?: scalar|null|Param, // The directory where translations and TypeScript types are dumped. // Default: "%kernel.project_dir%/var/translations"
- *     dump_typescript?: bool|Param, // Control whether TypeScript types are dumped alongside translations. Disable this if you do not use TypeScript (e.g. in production when using AssetMapper). // Default: true
- *     domains?: string|array{ // List of domains to include/exclude from the generated translations. Prefix with a `!` to exclude a domain.
- *         type?: scalar|null|Param,
- *         elements?: list<scalar|null|Param>,
- *     },
- *     keys_patterns?: list<scalar|null|Param>,
- * }
  * @psalm-type NelmioCorsConfig = array{
  *     defaults?: array{
  *         allow_credentials?: bool|Param, // Default: false
@@ -1943,7 +1934,6 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     survos_lingua?: SurvosLinguaConfig,
  *     survos_state?: SurvosStateConfig,
  *     survos_translator?: SurvosTranslatorConfig,
- *     ux_translator?: UxTranslatorConfig,
  *     nelmio_cors?: NelmioCorsConfig,
  *     api_platform?: ApiPlatformConfig,
  *     inspector?: InspectorConfig,
@@ -1977,7 +1967,6 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         survos_lingua?: SurvosLinguaConfig,
  *         survos_state?: SurvosStateConfig,
  *         survos_translator?: SurvosTranslatorConfig,
- *         ux_translator?: UxTranslatorConfig,
  *         nelmio_cors?: NelmioCorsConfig,
  *         api_platform?: ApiPlatformConfig,
  *         survos_deployment?: SurvosDeploymentConfig,
@@ -2009,7 +1998,6 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         survos_lingua?: SurvosLinguaConfig,
  *         survos_state?: SurvosStateConfig,
  *         survos_translator?: SurvosTranslatorConfig,
- *         ux_translator?: UxTranslatorConfig,
  *         nelmio_cors?: NelmioCorsConfig,
  *         api_platform?: ApiPlatformConfig,
  *         inspector?: InspectorConfig,
@@ -2042,7 +2030,6 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         survos_lingua?: SurvosLinguaConfig,
  *         survos_state?: SurvosStateConfig,
  *         survos_translator?: SurvosTranslatorConfig,
- *         ux_translator?: UxTranslatorConfig,
  *         nelmio_cors?: NelmioCorsConfig,
  *         api_platform?: ApiPlatformConfig,
  *         survos_deployment?: SurvosDeploymentConfig,

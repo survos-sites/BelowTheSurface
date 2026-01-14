@@ -223,15 +223,6 @@ return [
     '@formatjs/icu-skeleton-parser' => [
         'version' => '1.8.16',
     ],
-    '@symfony/ux-translator' => [
-        'path' => './vendor/symfony/ux-translator/assets/dist/translator_controller.js',
-    ],
-    '@app/translations' => [
-        'path' => './var/translations/index.js',
-    ],
-    '@app/translations/configuration' => [
-        'path' => './var/translations/configuration.js',
-    ],
     'chart.js' => [
         'version' => '3.9.1',
     ],
