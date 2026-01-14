@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "db036db38ffeecba5cf20db3b8bdf77d",
+    "content-hash": "84d018e12970d112c870ca1fd97bd3a2",
     "packages": [
         {
             "name": "adbario/php-dot-notation",
@@ -1735,37 +1735,44 @@
         },
         {
             "name": "doctrine/doctrine-migrations-bundle",
-            "version": "3.7.0",
+            "version": "4.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/DoctrineMigrationsBundle.git",
-                "reference": "1e380c6dd8ac8488217f39cff6b77e367f1a644b"
+                "reference": "20505da78735744fb4a42a3bb9a416b345ad6f7c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineMigrationsBundle/zipball/1e380c6dd8ac8488217f39cff6b77e367f1a644b",
-                "reference": "1e380c6dd8ac8488217f39cff6b77e367f1a644b",
+                "url": "https://api.github.com/repos/doctrine/DoctrineMigrationsBundle/zipball/20505da78735744fb4a42a3bb9a416b345ad6f7c",
+                "reference": "20505da78735744fb4a42a3bb9a416b345ad6f7c",
                 "shasum": ""
             },
             "require": {
-                "doctrine/doctrine-bundle": "^2.4 || ^3.0",
+                "doctrine/dbal": "^4",
+                "doctrine/doctrine-bundle": "^3",
                 "doctrine/migrations": "^3.2",
-                "php": "^7.2 || ^8.0",
-                "symfony/deprecation-contracts": "^2.1 || ^3",
-                "symfony/framework-bundle": "^5.4 || ^6.0 || ^7.0 || ^8.0"
+                "php": "^8.4",
+                "psr/log": "^3",
+                "symfony/config": "^6.4 || ^7.0 || ^8.0",
+                "symfony/console": "^6.4 || ^7.0 || ^8.0",
+                "symfony/dependency-injection": "^6.4 || ^7.0 || ^8.0",
+                "symfony/deprecation-contracts": "^3",
+                "symfony/framework-bundle": "^6.4 || ^7.0 || ^8.0",
+                "symfony/http-foundation": "^6.4 || ^7.0 || ^8.0",
+                "symfony/http-kernel": "^6.4 || ^7.0 || ^8.0",
+                "symfony/service-contracts": "^3.0"
             },
             "require-dev": {
                 "composer/semver": "^3.0",
-                "doctrine/coding-standard": "^12 || ^14",
-                "doctrine/orm": "^2.6 || ^3",
-                "phpstan/phpstan": "^1.4 || ^2",
-                "phpstan/phpstan-deprecation-rules": "^1 || ^2",
-                "phpstan/phpstan-phpunit": "^1 || ^2",
-                "phpstan/phpstan-strict-rules": "^1.1 || ^2",
-                "phpstan/phpstan-symfony": "^1.3 || ^2",
-                "phpunit/phpunit": "^8.5 || ^9.5",
-                "symfony/phpunit-bridge": "^6.3 || ^7 || ^8",
-                "symfony/var-exporter": "^5.4 || ^6 || ^7 || ^8"
+                "doctrine/coding-standard": "^14",
+                "doctrine/orm": "^3",
+                "phpstan/phpstan": "^2",
+                "phpstan/phpstan-deprecation-rules": "^2",
+                "phpstan/phpstan-phpunit": "^2",
+                "phpstan/phpstan-strict-rules": "^2",
+                "phpstan/phpstan-symfony": "^2",
+                "phpunit/phpunit": "^12.5",
+                "symfony/var-exporter": "^6.4 || ^7 || ^8"
             },
             "type": "symfony-bundle",
             "autoload": {
@@ -1800,7 +1807,7 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/DoctrineMigrationsBundle/issues",
-                "source": "https://github.com/doctrine/DoctrineMigrationsBundle/tree/3.7.0"
+                "source": "https://github.com/doctrine/DoctrineMigrationsBundle/tree/4.0.0"
             },
             "funding": [
                 {
@@ -1816,7 +1823,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-11-15T19:02:59+00:00"
+            "time": "2025-12-05T08:14:38+00:00"
         },
         {
             "name": "doctrine/event-manager",
@@ -3606,16 +3613,16 @@
         },
         {
             "name": "phpdocumentor/reflection-docblock",
-            "version": "5.6.6",
+            "version": "6.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/ReflectionDocBlock.git",
-                "reference": "5cee1d3dfc2d2aa6599834520911d246f656bcb8"
+                "reference": "02600c041e7d0f4b7d1fe1d260565ec525472fa9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/5cee1d3dfc2d2aa6599834520911d246f656bcb8",
-                "reference": "5cee1d3dfc2d2aa6599834520911d246f656bcb8",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/02600c041e7d0f4b7d1fe1d260565ec525472fa9",
+                "reference": "02600c041e7d0f4b7d1fe1d260565ec525472fa9",
                 "shasum": ""
             },
             "require": {
@@ -3623,8 +3630,8 @@
                 "ext-filter": "*",
                 "php": "^7.4 || ^8.0",
                 "phpdocumentor/reflection-common": "^2.2",
-                "phpdocumentor/type-resolver": "^1.7",
-                "phpstan/phpdoc-parser": "^1.7|^2.0",
+                "phpdocumentor/type-resolver": "^2.0",
+                "phpstan/phpdoc-parser": "^2.0",
                 "webmozart/assert": "^1.9.1 || ^2"
             },
             "require-dev": {
@@ -3634,7 +3641,8 @@
                 "phpstan/phpstan-mockery": "^1.1",
                 "phpstan/phpstan-webmozart-assert": "^1.2",
                 "phpunit/phpunit": "^9.5",
-                "psalm/phar": "^5.26"
+                "psalm/phar": "^5.26",
+                "shipmonk/dead-code-detector": "^0.5.1"
             },
             "type": "library",
             "extra": {
@@ -3664,44 +3672,44 @@
             "description": "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock.",
             "support": {
                 "issues": "https://github.com/phpDocumentor/ReflectionDocBlock/issues",
-                "source": "https://github.com/phpDocumentor/ReflectionDocBlock/tree/5.6.6"
+                "source": "https://github.com/phpDocumentor/ReflectionDocBlock/tree/6.0.0"
             },
-            "time": "2025-12-22T21:13:58+00:00"
+            "time": "2026-01-07T20:22:53+00:00"
         },
         {
             "name": "phpdocumentor/type-resolver",
-            "version": "1.12.0",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/TypeResolver.git",
-                "reference": "92a98ada2b93d9b201a613cb5a33584dde25f195"
+                "reference": "327a05bbee54120d4786a0dc67aad30226ad4cf9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/92a98ada2b93d9b201a613cb5a33584dde25f195",
-                "reference": "92a98ada2b93d9b201a613cb5a33584dde25f195",
+                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/327a05bbee54120d4786a0dc67aad30226ad4cf9",
+                "reference": "327a05bbee54120d4786a0dc67aad30226ad4cf9",
                 "shasum": ""
             },
             "require": {
                 "doctrine/deprecations": "^1.0",
-                "php": "^7.3 || ^8.0",
+                "php": "^7.4 || ^8.0",
                 "phpdocumentor/reflection-common": "^2.0",
-                "phpstan/phpdoc-parser": "^1.18|^2.0"
+                "phpstan/phpdoc-parser": "^2.0"
             },
             "require-dev": {
                 "ext-tokenizer": "*",
                 "phpbench/phpbench": "^1.2",
-                "phpstan/extension-installer": "^1.1",
-                "phpstan/phpstan": "^1.8",
-                "phpstan/phpstan-phpunit": "^1.1",
+                "phpstan/extension-installer": "^1.4",
+                "phpstan/phpstan": "^2.1",
+                "phpstan/phpstan-phpunit": "^2.0",
                 "phpunit/phpunit": "^9.5",
-                "rector/rector": "^0.13.9",
-                "vimeo/psalm": "^4.25"
+                "psalm/phar": "^4"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-1.x": "1.x-dev"
+                    "dev-1.x": "1.x-dev",
+                    "dev-2.x": "2.x-dev"
                 }
             },
             "autoload": {
@@ -3722,9 +3730,9 @@
             "description": "A PSR-5 based resolver of Class names, Types and Structural Element Names",
             "support": {
                 "issues": "https://github.com/phpDocumentor/TypeResolver/issues",
-                "source": "https://github.com/phpDocumentor/TypeResolver/tree/1.12.0"
+                "source": "https://github.com/phpDocumentor/TypeResolver/tree/2.0.0"
             },
-            "time": "2025-11-21T15:09:14+00:00"
+            "time": "2026-01-06T21:53:42+00:00"
         },
         {
             "name": "phpstan/phpdoc-parser",
@@ -4241,16 +4249,16 @@
         },
         {
             "name": "survos/babel-bundle",
-            "version": "2.0.88",
+            "version": "2.0.106",
             "source": {
                 "type": "git",
                 "url": "https://github.com/survos/babel-bundle.git",
-                "reference": "f39c3c7bf65080fc67f554b6cfe454e33cac0931"
+                "reference": "9a2b3838179881bdd9b9e658d16f64a4b8614b8b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/survos/babel-bundle/zipball/f39c3c7bf65080fc67f554b6cfe454e33cac0931",
-                "reference": "f39c3c7bf65080fc67f554b6cfe454e33cac0931",
+                "url": "https://api.github.com/repos/survos/babel-bundle/zipball/9a2b3838179881bdd9b9e658d16f64a4b8614b8b",
+                "reference": "9a2b3838179881bdd9b9e658d16f64a4b8614b8b",
                 "shasum": ""
             },
             "require": {
@@ -4260,8 +4268,8 @@
                 "ext-intl": "*",
                 "ext-mbstring": "*",
                 "php": "^8.4",
-                "survos/lingua-contracts": "dev-main",
-                "survos/lingua-core": "dev-main",
+                "survos/lingua-contracts": "^2.0",
+                "survos/lingua-core": "^2.0",
                 "symfony/console": "^7.3||^8.0",
                 "symfony/dependency-injection": "^7.3||^8.0",
                 "symfony/http-kernel": "^7.3||^8.0",
@@ -4274,7 +4282,7 @@
                 "phpstan/phpstan": "^2.0",
                 "phpunit/phpunit": "^12",
                 "roave/security-advisories": "dev-latest",
-                "survos/translator-bundle": "dev-main",
+                "survos/translator-bundle": "^2.0",
                 "symfony/phpunit-bridge": "^8.0"
             },
             "type": "symfony-bundle",
@@ -4295,7 +4303,7 @@
             "description": "Lightweight translation base (Str/StrTranslation) + Translatable attribute & subscriber",
             "support": {
                 "issues": "https://github.com/survos/babel-bundle/issues",
-                "source": "https://github.com/survos/babel-bundle/tree/2.0.88"
+                "source": "https://github.com/survos/babel-bundle/tree/2.0.106"
             },
             "funding": [
                 {
@@ -4303,11 +4311,11 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-12-23T11:21:58+00:00"
+            "time": "2026-01-09T14:52:31+00:00"
         },
         {
             "name": "survos/core-bundle",
-            "version": "2.0.105",
+            "version": "2.0.106",
             "source": {
                 "type": "git",
                 "url": "https://github.com/survos/core-bundle.git",
@@ -4401,7 +4409,7 @@
         },
         {
             "name": "survos/ez-bundle",
-            "version": "2.0.105",
+            "version": "2.0.106",
             "source": {
                 "type": "git",
                 "url": "https://github.com/survos/ez-bundle.git",
@@ -4451,7 +4459,7 @@
             ],
             "support": {
                 "issues": "https://github.com/survos/ez-bundle/issues",
-                "source": "https://github.com/survos/ez-bundle/tree/2.0.105"
+                "source": "https://github.com/survos/ez-bundle/tree/2.0.106"
             },
             "funding": [
                 {
@@ -4463,7 +4471,7 @@
         },
         {
             "name": "survos/import-bundle",
-            "version": "2.0.105",
+            "version": "2.0.106",
             "source": {
                 "type": "git",
                 "url": "https://github.com/survos/import-bundle.git",
@@ -4519,7 +4527,7 @@
             ],
             "support": {
                 "issues": "https://github.com/survos/import-bundle/issues",
-                "source": "https://github.com/survos/import-bundle/tree/2.0.105"
+                "source": "https://github.com/survos/import-bundle/tree/2.0.106"
             },
             "funding": [
                 {
@@ -4531,7 +4539,7 @@
         },
         {
             "name": "survos/jsonl-bundle",
-            "version": "2.0.105",
+            "version": "2.0.106",
             "source": {
                 "type": "git",
                 "url": "https://github.com/survos/jsonl-bundle.git",
@@ -4582,7 +4590,7 @@
             "description": "Fast, concurrent, resumable, strictly-ordered JSONL ingestion utilities for Symfony 7.3 / PHP 8.4",
             "support": {
                 "issues": "https://github.com/survos/jsonl-bundle/issues",
-                "source": "https://github.com/survos/jsonl-bundle/tree/2.0.105"
+                "source": "https://github.com/survos/jsonl-bundle/tree/2.0.106"
             },
             "funding": [
                 {
@@ -4594,22 +4602,22 @@
         },
         {
             "name": "survos/lingua-bundle",
-            "version": "2.0.85",
+            "version": "2.0.106",
             "source": {
                 "type": "git",
                 "url": "https://github.com/survos/lingua-bundle.git",
-                "reference": "7966b6c2f187b410f3e0d3078e1d2d9ee915c8b1"
+                "reference": "269a68bfad0279df8e8029b8da937ecadf3efa6a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/survos/lingua-bundle/zipball/7966b6c2f187b410f3e0d3078e1d2d9ee915c8b1",
-                "reference": "7966b6c2f187b410f3e0d3078e1d2d9ee915c8b1",
+                "url": "https://api.github.com/repos/survos/lingua-bundle/zipball/269a68bfad0279df8e8029b8da937ecadf3efa6a",
+                "reference": "269a68bfad0279df8e8029b8da937ecadf3efa6a",
                 "shasum": ""
             },
             "require": {
                 "php": "^8.4",
-                "survos/lingua-contracts": "dev-main",
-                "survos/lingua-core": "dev-main",
+                "survos/lingua-contracts": "^2.0",
+                "survos/lingua-core": "^2.0",
                 "symfony/config": "^7.4||^8.0",
                 "symfony/console": "^7.4||^8.0",
                 "symfony/dependency-injection": "^7.4||^8.0",
@@ -4646,7 +4654,7 @@
             ],
             "support": {
                 "issues": "https://github.com/survos/lingua-bundle/issues",
-                "source": "https://github.com/survos/lingua-bundle/tree/2.0.85"
+                "source": "https://github.com/survos/lingua-bundle/tree/2.0.106"
             },
             "funding": [
                 {
@@ -4654,11 +4662,11 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-12-17T19:32:40+00:00"
+            "time": "2025-12-27T10:56:05+00:00"
         },
         {
             "name": "survos/lingua-contracts",
-            "version": "dev-main",
+            "version": "2.0.106",
             "source": {
                 "type": "git",
                 "url": "https://github.com/survos/lingua-contracts.git",
@@ -4677,7 +4685,6 @@
                 "phpunit/phpunit": "^12.5",
                 "symplify/easy-coding-standard": "^13.0"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -4691,7 +4698,7 @@
             "description": "Shared DTOs and API surface (routes/headers) for Survos Lingua client/server interoperability.",
             "support": {
                 "issues": "https://github.com/survos/lingua-contracts/issues",
-                "source": "https://github.com/survos/lingua-contracts/tree/main"
+                "source": "https://github.com/survos/lingua-contracts/tree/2.0.106"
             },
             "funding": [
                 {
@@ -4703,7 +4710,7 @@
         },
         {
             "name": "survos/lingua-core",
-            "version": "dev-main",
+            "version": "2.0.106",
             "source": {
                 "type": "git",
                 "url": "https://github.com/survos/lingua-core.git",
@@ -4723,7 +4730,6 @@
                 "phpunit/phpunit": "^12.5",
                 "symplify/easy-coding-standard": "^13.0"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -4737,7 +4743,7 @@
             "description": "Core identity utilities (hash/key calculation and canonicalization) shared across Survos Lingua, Babel, and server implementations.",
             "support": {
                 "issues": "https://github.com/survos/lingua-core/issues",
-                "source": "https://github.com/survos/lingua-core/tree/main"
+                "source": "https://github.com/survos/lingua-core/tree/2.0.106"
             },
             "funding": [
                 {
@@ -4749,16 +4755,16 @@
         },
         {
             "name": "survos/media-bundle",
-            "version": "2.0.105",
+            "version": "2.0.106",
             "source": {
                 "type": "git",
                 "url": "https://github.com/survos/media-bundle.git",
-                "reference": "8192c03c4ec0b3c8a9d651cf0819b9d7487a4382"
+                "reference": "1f639ef108db2cc50659d9d3f0f2dfe08f9c4efe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/survos/media-bundle/zipball/8192c03c4ec0b3c8a9d651cf0819b9d7487a4382",
-                "reference": "8192c03c4ec0b3c8a9d651cf0819b9d7487a4382",
+                "url": "https://api.github.com/repos/survos/media-bundle/zipball/1f639ef108db2cc50659d9d3f0f2dfe08f9c4efe",
+                "reference": "1f639ef108db2cc50659d9d3f0f2dfe08f9c4efe",
                 "shasum": ""
             },
             "require": {
@@ -4800,7 +4806,7 @@
             ],
             "support": {
                 "issues": "https://github.com/survos/media-bundle/issues",
-                "source": "https://github.com/survos/media-bundle/tree/2.0.105"
+                "source": "https://github.com/survos/media-bundle/tree/2.0.106"
             },
             "funding": [
                 {
@@ -4808,20 +4814,20 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-01-13T19:39:07+00:00"
+            "time": "2026-01-14T11:10:02+00:00"
         },
         {
             "name": "survos/meili-bundle",
-            "version": "2.0.105",
+            "version": "2.0.106",
             "source": {
                 "type": "git",
                 "url": "https://github.com/survos/meili-bundle.git",
-                "reference": "b1f62436bf636fd4d06d310dcf3016831341a7b2"
+                "reference": "a7856e97605d0c4af9e14d1f9a07d564a42fe850"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/survos/meili-bundle/zipball/b1f62436bf636fd4d06d310dcf3016831341a7b2",
-                "reference": "b1f62436bf636fd4d06d310dcf3016831341a7b2",
+                "url": "https://api.github.com/repos/survos/meili-bundle/zipball/a7856e97605d0c4af9e14d1f9a07d564a42fe850",
+                "reference": "a7856e97605d0c4af9e14d1f9a07d564a42fe850",
                 "shasum": ""
             },
             "require": {
@@ -4887,7 +4893,7 @@
             ],
             "support": {
                 "issues": "https://github.com/survos/meili-bundle/issues",
-                "source": "https://github.com/survos/meili-bundle/tree/2.0.105"
+                "source": "https://github.com/survos/meili-bundle/tree/2.0.106"
             },
             "funding": [
                 {
@@ -4895,20 +4901,20 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-01-13T19:39:11+00:00"
+            "time": "2026-01-14T11:10:03+00:00"
         },
         {
             "name": "survos/state-bundle",
-            "version": "2.0.105",
+            "version": "2.0.106",
             "source": {
                 "type": "git",
                 "url": "https://github.com/survos/state-bundle.git",
-                "reference": "62f5b8348d1d898f4ca89ee8d712c5ab4adf4fb1"
+                "reference": "7e977864646145174c12543bd22af847d57f5614"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/survos/state-bundle/zipball/62f5b8348d1d898f4ca89ee8d712c5ab4adf4fb1",
-                "reference": "62f5b8348d1d898f4ca89ee8d712c5ab4adf4fb1",
+                "url": "https://api.github.com/repos/survos/state-bundle/zipball/7e977864646145174c12543bd22af847d57f5614",
+                "reference": "7e977864646145174c12543bd22af847d57f5614",
                 "shasum": ""
             },
             "require": {
@@ -4924,7 +4930,6 @@
                 "symfony/yaml": "^7.3||^8.0"
             },
             "require-dev": {
-                "jwage/phpamqplib-messenger": "^0.9.0",
                 "nette/php-generator": "^4.1",
                 "phpstan/phpstan": "^2.0",
                 "phpunit/phpunit": "^12",
@@ -4974,7 +4979,7 @@
             ],
             "support": {
                 "issues": "https://github.com/survos/state-bundle/issues",
-                "source": "https://github.com/survos/state-bundle/tree/2.0.105"
+                "source": "https://github.com/survos/state-bundle/tree/2.0.106"
             },
             "funding": [
                 {
@@ -4982,27 +4987,27 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-01-02T18:55:03+00:00"
+            "time": "2026-01-14T11:10:01+00:00"
         },
         {
             "name": "survos/translator-bundle",
-            "version": "2.0.88",
+            "version": "2.0.106",
             "source": {
                 "type": "git",
                 "url": "https://github.com/survos/translator-bundle.git",
-                "reference": "1aad4e6a7d38edd88080941252252dc3785c0dcb"
+                "reference": "73dbee03173e8223040da2acbed41182684f34d0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/survos/translator-bundle/zipball/1aad4e6a7d38edd88080941252252dc3785c0dcb",
-                "reference": "1aad4e6a7d38edd88080941252252dc3785c0dcb",
+                "url": "https://api.github.com/repos/survos/translator-bundle/zipball/73dbee03173e8223040da2acbed41182684f34d0",
+                "reference": "73dbee03173e8223040da2acbed41182684f34d0",
                 "shasum": ""
             },
             "require": {
                 "php": "^8.4",
                 "psr/cache": "^3.0",
                 "psr/container": "^2.0",
-                "survos/lingua-core": "dev-main",
+                "survos/lingua-core": "^2.0",
                 "symfony/cache": "^7.3||^8.0",
                 "symfony/config": "^7.3||^8.0",
                 "symfony/console": "^7.3||^8.0",
@@ -5032,7 +5037,7 @@
             "description": "Engine-agnostic translation client bundle (Symfony 7.3 / PHP 8.4) with LibreTranslate adapter and optional caching.",
             "support": {
                 "issues": "https://github.com/survos/translator-bundle/issues",
-                "source": "https://github.com/survos/translator-bundle/tree/2.0.88"
+                "source": "https://github.com/survos/translator-bundle/tree/2.0.106"
             },
             "funding": [
                 {
@@ -5040,7 +5045,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-12-14T11:59:20+00:00"
+            "time": "2025-12-23T12:00:59+00:00"
         },
         {
             "name": "symfony/asset",
@@ -14611,7 +14616,7 @@
         },
         {
             "name": "survos/code-bundle",
-            "version": "2.0.105",
+            "version": "2.0.106",
             "source": {
                 "type": "git",
                 "url": "https://github.com/survos/code-bundle.git",
@@ -14676,7 +14681,7 @@
             ],
             "support": {
                 "issues": "https://github.com/survos/code-bundle/issues",
-                "source": "https://github.com/survos/code-bundle/tree/2.0.105"
+                "source": "https://github.com/survos/code-bundle/tree/2.0.106"
             },
             "funding": [
                 {
@@ -14688,16 +14693,16 @@
         },
         {
             "name": "survos/deployment-bundle",
-            "version": "2.0.105",
+            "version": "2.0.106",
             "source": {
                 "type": "git",
                 "url": "https://github.com/survos/deployment-bundle.git",
-                "reference": "b496af220c58e113b7259aeac5e0196f7c253834"
+                "reference": "942435aae3dd6623943ecfb17efdf825ef56c6ee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/survos/deployment-bundle/zipball/b496af220c58e113b7259aeac5e0196f7c253834",
-                "reference": "b496af220c58e113b7259aeac5e0196f7c253834",
+                "url": "https://api.github.com/repos/survos/deployment-bundle/zipball/942435aae3dd6623943ecfb17efdf825ef56c6ee",
+                "reference": "942435aae3dd6623943ecfb17efdf825ef56c6ee",
                 "shasum": ""
             },
             "require": {
@@ -14736,7 +14741,7 @@
             ],
             "support": {
                 "issues": "https://github.com/survos/deployment-bundle/issues",
-                "source": "https://github.com/survos/deployment-bundle/tree/2.0.105"
+                "source": "https://github.com/survos/deployment-bundle/tree/2.0.106"
             },
             "funding": [
                 {
@@ -14744,7 +14749,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-01-12T02:06:50+00:00"
+            "time": "2026-01-14T11:10:01+00:00"
         },
         {
             "name": "symfony/browser-kit",
@@ -15270,9 +15275,7 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "meilisearch/meilisearch-php": 20,
-        "roave/security-advisories": 20,
-        "survos/lingua-contracts": 20,
-        "survos/lingua-core": 20
+        "roave/security-advisories": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
