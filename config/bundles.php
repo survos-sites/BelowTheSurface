@@ -32,4 +32,6 @@ return [
     Survos\DeploymentBundle\SurvosDeploymentBundle::class => ['dev' => true, 'test' => true],
     Inspector\Symfony\Bundle\InspectorBundle::class => ['all' => true],
     Symfony\UX\Chartjs\ChartjsBundle::class => ['all' => true],
+    Survos\MediaBundle\SurvosMediaBundle::class => ['all' => true],
+    Museado\DataBundle\MuseadoDataBundle::class => ['all' => true],
 ];

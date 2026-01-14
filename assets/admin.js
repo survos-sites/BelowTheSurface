@@ -1,4 +1,9 @@
 /*
+ * This file will be included onto the EasyAdmin pages via the importmap() Twig function.
+ */
+
+// import './stimulus_bootstrap.js';
+/*
  * Welcome to your app's main JavaScript file!
  *
  * This file will be included onto the page via the importmap() Twig function,
@@ -6,3 +11,4 @@
  */
 // stimulus
 import './stimulus_bootstrap.js';
+import 'instantsearch.css/themes/algolia.min.css';

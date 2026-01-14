@@ -411,7 +411,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         enabled?: bool|Param, // Default: true
  *     },
  *     lock?: bool|string|array{ // Lock configuration
- *         enabled?: bool|Param, // Default: false
+ *         enabled?: bool|Param, // Default: true
  *         resources?: array<string, string|list<scalar|null|Param>>,
  *     },
  *     semaphore?: bool|string|array{ // Semaphore configuration
@@ -1486,7 +1486,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         for?: scalar|null|Param, // Default: null
  *         template?: scalar|null|Param, // Default: null
  *         documentTemplateMaxBytes?: int|Param, // Default: 4096
- *         maxTokensPerDoc?: int|Param, // Optional hint for expected max tokens per doc for cost estimation / guard rails. // Default: null
+ *         maxTokensPerDoc?: int|Param, // Default: null
  *         examples?: list<scalar|null|Param>,
  *     }>,
  *     pricing?: array{
@@ -1522,7 +1522,10 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         name_prefix?: scalar|null|Param, // Default: ""
  *     }>,
  *     anonymous_template_directory?: scalar|null|Param, // Defaults to `components`
- *     profiler?: bool|Param, // Enables the profiler for Twig Component (in debug mode) // Default: "%kernel.debug%"
+ *     profiler?: bool|array{ // Enables the profiler for Twig Component
+ *         enabled?: bool|Param, // Default: "%kernel.debug%"
+ *         collect_components?: bool|Param, // Collect components instances // Default: true
+ *     },
  *     controllers_json?: scalar|null|Param, // Deprecated: The "twig_component.controllers_json" config option is deprecated, and will be removed in 3.0. // Default: null
  * }
  * @psalm-type SurvosEzConfig = array{
@@ -1531,13 +1534,13 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  * @psalm-type SurvosBabelConfig = array<mixed>
  * @psalm-type UxIconsConfig = array{
  *     icon_dir?: scalar|null|Param, // The local directory where icons are stored. // Default: "%kernel.project_dir%/assets/icons"
- *     default_icon_attributes?: mixed, // Default attributes to add to all icons. // Default: {"fill":"currentColor"}
+ *     default_icon_attributes?: array<string, scalar|null|Param>,
  *     icon_sets?: array<string, array{ // the icon set prefix (e.g. "acme") // Default: []
  *         path?: scalar|null|Param, // The local icon set directory path. (cannot be used with 'alias')
  *         alias?: scalar|null|Param, // The remote icon set identifier. (cannot be used with 'path')
- *         icon_attributes?: list<mixed>,
+ *         icon_attributes?: array<string, scalar|null|Param>,
  *     }>,
- *     aliases?: list<scalar|null|Param>,
+ *     aliases?: array<string, string|Param>,
  *     iconify?: bool|array{ // Configuration for the remote icon service.
  *         enabled?: bool|Param, // Default: true
  *         on_demand?: bool|Param, // Whether to download icons "on demand". // Default: true
@@ -1572,11 +1575,13 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     }>,
  * }
  * @psalm-type UxTranslatorConfig = array{
- *     dump_directory?: scalar|null|Param, // Default: "%kernel.project_dir%/var/translations"
+ *     dump_directory?: scalar|null|Param, // The directory where translations and TypeScript types are dumped. // Default: "%kernel.project_dir%/var/translations"
+ *     dump_typescript?: bool|Param, // Control whether TypeScript types are dumped alongside translations. Disable this if you do not use TypeScript (e.g. in production when using AssetMapper). // Default: true
  *     domains?: string|array{ // List of domains to include/exclude from the generated translations. Prefix with a `!` to exclude a domain.
  *         type?: scalar|null|Param,
  *         elements?: list<scalar|null|Param>,
  *     },
+ *     keys_patterns?: list<scalar|null|Param>,
  * }
  * @psalm-type NelmioCorsConfig = array{
  *     defaults?: array{
@@ -1879,6 +1884,41 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     ignore_commands?: list<scalar|null|Param>,
  *     ignore_messages?: list<scalar|null|Param>,
  * }
+ * @psalm-type SurvosMediaConfig = array{
+ *     default_locale?: scalar|null|Param, // Default: "en"
+ *     cache_ttl?: scalar|null|Param, // Default: 3600
+ *     sais_integration?: bool|Param, // Default: true
+ *     imgproxy?: array{
+ *         base_url?: scalar|null|Param, // Default: "https://imgproxy.survos.com"
+ *         key?: scalar|null|Param, // Default: "%env(IMGPROXY_KEY)%"
+ *         salt?: scalar|null|Param, // Default: "%env(IMGPROXY_SALT)%"
+ *     },
+ *     media_server?: array{
+ *         host?: scalar|null|Param, // Default: "https://media.wip"
+ *         apiKey?: scalar|null|Param, // Default: null
+ *         resize_path?: scalar|null|Param, // Default: "/media/{preset}/{id}"
+ *     },
+ *     presets?: array<string, array{ // Default: {"small":{"resize":"fill","width":192,"height":192},"medium":{"resize":"fit","width":400,"height":400},"large":{"resize":"fit","width":800,"height":800}}
+ *         resize?: scalar|null|Param, // Default: "fit"
+ *         width: int|Param,
+ *         height: int|Param,
+ *     }>,
+ *     providers?: array<string, array{ // Default: []
+ *         enabled?: bool|Param, // Default: true
+ *         api_key?: scalar|null|Param,
+ *         api_secret?: scalar|null|Param,
+ *         access_token?: scalar|null|Param,
+ *         options?: list<mixed>,
+ *     }>,
+ * }
+ * @psalm-type MuseadoDataConfig = array{
+ *     data_dir?: scalar|null|Param, // Default: "%env(APP_DATA_DIR)%"
+ *     dataset_root?: scalar|null|Param, // Default: "data"
+ *     pixie_root?: scalar|null|Param, // Default: "pixie"
+ *     runs_root?: scalar|null|Param, // Default: "runs"
+ *     cache_root?: scalar|null|Param, // Default: "cache"
+ *     default_object_filename?: scalar|null|Param, // Default: "obj.jsonl"
+ * }
  * @psalm-type ConfigType = array{
  *     imports?: ImportsConfig,
  *     parameters?: ParametersConfig,
@@ -1907,6 +1947,8 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     nelmio_cors?: NelmioCorsConfig,
  *     api_platform?: ApiPlatformConfig,
  *     inspector?: InspectorConfig,
+ *     survos_media?: SurvosMediaConfig,
+ *     museado_data?: MuseadoDataConfig,
  *     "when@dev"?: array{
  *         imports?: ImportsConfig,
  *         parameters?: ParametersConfig,
@@ -1940,6 +1982,8 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         api_platform?: ApiPlatformConfig,
  *         survos_deployment?: SurvosDeploymentConfig,
  *         inspector?: InspectorConfig,
+ *         survos_media?: SurvosMediaConfig,
+ *         museado_data?: MuseadoDataConfig,
  *     },
  *     "when@prod"?: array{
  *         imports?: ImportsConfig,
@@ -1969,6 +2013,8 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         nelmio_cors?: NelmioCorsConfig,
  *         api_platform?: ApiPlatformConfig,
  *         inspector?: InspectorConfig,
+ *         survos_media?: SurvosMediaConfig,
+ *         museado_data?: MuseadoDataConfig,
  *     },
  *     "when@test"?: array{
  *         imports?: ImportsConfig,
@@ -2001,6 +2047,8 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         api_platform?: ApiPlatformConfig,
  *         survos_deployment?: SurvosDeploymentConfig,
  *         inspector?: InspectorConfig,
+ *         survos_media?: SurvosMediaConfig,
+ *         museado_data?: MuseadoDataConfig,
  *     },
  *     ...<string, ExtensionType|array{ // extra keys must follow the when@%env% pattern or match an extension alias
  *         imports?: ImportsConfig,

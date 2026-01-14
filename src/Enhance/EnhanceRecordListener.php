@@ -4,8 +4,10 @@ namespace App\Enhance;
 
 use Sentry\HttpClient\HttpClient;
 use Survos\CoreBundle\Service\SurvosUtils;
+use Survos\ImportBundle\Event\ImportConvertFinishedEvent;
 use Survos\JsonlBundle\Event\JsonlConvertStartedEvent;
 use Survos\JsonlBundle\Event\JsonlRecordEvent;
+use Survos\MediaBundle\Service\MediaRegistry;
 use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
 use Symfony\Component\String\Slugger\AsciiSlugger;
 use Symfony\Component\String\Slugger\SluggerInterface;
@@ -19,10 +21,16 @@ class EnhanceRecordListener
     public function __construct(
         private SluggerInterface    $asciiSlugger,
         private HttpClientInterface $httpClient,
+        private MediaRegistry $mediaRegistry
     )
     {
     }
 
+    #[AsEventListener(event: ImportConvertFinishedEvent::class)]
+    final public function finished(ImportConvertFinishedEvent $event): void
+    {
+        $this->mediaRegistry->flush();
+    }
     #[AsEventListener(event: ImportConvertRowEvent::class)]
     final public function tweakRecord(ImportConvertRowEvent $event): void
     {
@@ -42,6 +50,11 @@ class EnhanceRecordListener
                     if ($record['website']) {
                         $image = $record['image'] = sprintf('https://statics.belowthesurface.amsterdam/vondst/600/%s(01).png',
                             $code);
+                        $hash = hash('xxh3', $image);
+                        if (!in_array($hash, $this->seen)) {
+                            $this->mediaRegistry->ensureMedia($image, flush: false);
+                            $this->seen[] = $hash;
+                        }
 //                        $response = $this->httpClient->request('GET', $image);
 //                        if ($response->getStatusCode() <> 200) {
 //                            dd($response, $image);
@@ -73,6 +86,9 @@ class EnhanceRecordListener
                     break;
             }
 //            dd($record, $event->row);
+            if ($event->index % 1000 == 0) {
+                $this->mediaRegistry->flush();
+            }
 
             $event->row = $record;
         }

@@ -20,6 +20,10 @@ return [
         'path' => './assets/admin.js',
         'entrypoint' => true,
     ],
+    'meili' => [
+        'path' => './assets/meili.js',
+        'entrypoint' => true,
+    ],
     '@hotwired/stimulus' => [
         'version' => '3.2.2',
     ],
