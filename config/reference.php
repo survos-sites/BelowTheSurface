@@ -1910,6 +1910,15 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     cache_root?: scalar|null|Param, // Default: "cache"
  *     default_object_filename?: scalar|null|Param, // Default: "obj.jsonl"
  * }
+ * @psalm-type UxTranslatorConfig = array{
+ *     dump_directory?: scalar|null|Param, // The directory where translations and TypeScript types are dumped. // Default: "%kernel.project_dir%/var/translations"
+ *     dump_typescript?: bool|Param, // Control whether TypeScript types are dumped alongside translations. Disable this if you do not use TypeScript (e.g. in production when using AssetMapper). // Default: true
+ *     domains?: string|array{ // List of domains to include/exclude from the generated translations. Prefix with a `!` to exclude a domain.
+ *         type?: scalar|null|Param,
+ *         elements?: list<scalar|null|Param>,
+ *     },
+ *     keys_patterns?: list<scalar|null|Param>,
+ * }
  * @psalm-type ConfigType = array{
  *     imports?: ImportsConfig,
  *     parameters?: ParametersConfig,
@@ -1939,6 +1948,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     inspector?: InspectorConfig,
  *     survos_media?: SurvosMediaConfig,
  *     museado_data?: MuseadoDataConfig,
+ *     ux_translator?: UxTranslatorConfig,
  *     "when@dev"?: array{
  *         imports?: ImportsConfig,
  *         parameters?: ParametersConfig,
@@ -1973,6 +1983,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         inspector?: InspectorConfig,
  *         survos_media?: SurvosMediaConfig,
  *         museado_data?: MuseadoDataConfig,
+ *         ux_translator?: UxTranslatorConfig,
  *     },
  *     "when@prod"?: array{
  *         imports?: ImportsConfig,
@@ -2003,6 +2014,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         inspector?: InspectorConfig,
  *         survos_media?: SurvosMediaConfig,
  *         museado_data?: MuseadoDataConfig,
+ *         ux_translator?: UxTranslatorConfig,
  *     },
  *     "when@test"?: array{
  *         imports?: ImportsConfig,
@@ -2036,6 +2048,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         inspector?: InspectorConfig,
  *         survos_media?: SurvosMediaConfig,
  *         museado_data?: MuseadoDataConfig,
+ *         ux_translator?: UxTranslatorConfig,
  *     },
  *     ...<string, ExtensionType|array{ // extra keys must follow the when@%env% pattern or match an extension alias
  *         imports?: ImportsConfig,

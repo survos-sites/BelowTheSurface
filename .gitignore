@@ -21,3 +21,5 @@
 
 .castor.stub.php
 data
+config.bat
+node_modules
